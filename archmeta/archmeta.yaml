@@ -2,7 +2,7 @@
 #
 # Where things are (three folders at the root):
 #   archmeta/   the tool's side
-#     metamodels/      c4, archimate, core, data (+ icon SVGs) — the types you may use
+#     metamodels/      archimate, c4, infra, data, core (+ icon SVGs) — the types you may use
 #     data-points/     the values an element or a relationship can carry
 #     cascades/        values computed along a layer set
 #     filters/         lenses that colour or select what a view shows

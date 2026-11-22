@@ -1,0 +1,34 @@
+filter Sensitive-data-map {
+  description "How confidential the data each element holds or stores is"
+  hierarchy "Security"
+  reads Data-Classification-from
+  band "040 Restricted" {
+    colour "#c62828"
+  }
+  band "030 Confidential" {
+    colour "#e8743b"
+  }
+  band "020 Internal" {
+    colour "#e0b400"
+  }
+  band "010 Public" {
+    colour "#4fcfa4"
+  }
+  otherwise {
+    description "Not classified"
+    colour "#c8ccd2"
+    treatment muted
+  }
+}
+
+filter Sensitive-data-outside {
+  description "Confidential or restricted data on something that is not fully in house"
+  hierarchy "Security"
+  where Data-Classification-from greater-than "020 Internal" colour "#c62828" description "Confidential or restricted, hosted outside"
+  where Hosting greater-than "020 Private cloud"
+  join and
+  otherwise {
+    colour "#c8ccd2"
+    treatment muted
+  }
+}

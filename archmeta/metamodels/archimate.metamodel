@@ -19,18 +19,24 @@ metamodel archimate {
   // Cross-cutting — ArchiMate calls these Other.
   elementType grouping {
     displayName "Grouping"
+    description "Gathers any concepts that belong together for a reason of your own, such as a domain or a programme scope.
+                 Use it to frame a set visually and semantically; use Location for where things are, and Aggregation when the whole is itself a real element."
     shape "rectangle"
     color "#FFFFFF"
     icon "grouping.svg"
   }
   elementType junction {
     displayName "Junction"
+    description "A connector that splits or joins relationships of the same kind, as an AND or OR point.
+                 Use it where one trigger or flow fans out to several targets, or several converge on one; it carries no meaning of its own."
     shape "circle"
     color "#000000"
     icon "junction.svg"
   }
   elementType location {
     displayName "Location"
+    description "A place where things are: a site, a city, a region, or a virtual zone.
+                 Use it to show where actors, nodes or facilities sit; use Facility for the physical building or plant itself, and Grouping for non-geographic sets."
     shape "rectangle"
     color "#FFFFFF"
     icon "location.svg"
@@ -39,6 +45,8 @@ metamodel archimate {
   // Strategy elements.
   elementType capability {
     displayName "Capability"
+    description "An ability the organisation has or wants, described independently of how or by whom it is delivered.
+                 Use it for stable, what-we-can-do planning; use Business Function for how work is actually organised, and Value Stream for the stages that create value."
     aspect "behavior"
     shape "roundedrectangle"
     color "#F5DEAA"
@@ -46,6 +54,8 @@ metamodel archimate {
   }
   elementType courseofaction {
     displayName "Course Of Action"
+    description "An approach or plan for using capabilities and resources to reach a goal.
+                 Use it for strategic choices, such as grow through partnerships; use Work Package for the concrete project that implements it."
     aspect "behavior"
     shape "roundedrectangle"
     color "#F5DEAA"
@@ -53,12 +63,16 @@ metamodel archimate {
   }
   elementType resource {
     displayName "Resource"
+    description "An asset the organisation owns or controls: people, money, brand, data or equipment, seen strategically.
+                 Use it in capability planning; use Business Object, Equipment or Business Actor when you model the concrete thing in its own layer."
     shape "roundedrectangle"
     color "#F5DEAA"
     icon "resource.svg"
   }
   elementType valuestream {
     displayName "Value Stream"
+    description "A sequence of stages that together produce a result of value for a customer or stakeholder.
+                 Use it to show value creation end to end, stage by stage; use Business Process for the detailed operational steps behind a stage."
     aspect "behavior"
     shape "roundedrectangle"
     color "#F5DEAA"
@@ -68,6 +82,8 @@ metamodel archimate {
   // Business elements.
   elementType businessactor {
     displayName "Business Actor"
+    description "An organisational entity that performs behaviour: a person, a department, a company or a partner.
+                 Use it for who someone is; use Business Role for the responsibility they take on, which several actors can fill."
     aspect "active-structure"
     shape "rectangle"
     color "#FFFFC0"
@@ -75,6 +91,8 @@ metamodel archimate {
   }
   elementType businesscollaboration {
     displayName "Business Collaboration"
+    description "Two or more business roles or actors working together as a temporary or lasting whole.
+                 Use it when the joint party matters, such as a sales and legal team on a deal; use Business Interaction for the behaviour they perform together."
     aspect "active-structure"
     shape "rectangle"
     color "#FFFFC0"
@@ -82,6 +100,8 @@ metamodel archimate {
   }
   elementType businessevent {
     displayName "Business Event"
+    description "Something that happens and triggers or interrupts business behaviour, like an order received or a month end.
+                 Use it as the start or end of a process; it has no duration, unlike a Business Process."
     aspect "behavior"
     shape "roundedrectangle"
     color "#FFFFC0"
@@ -89,6 +109,8 @@ metamodel archimate {
   }
   elementType businessfunction {
     displayName "Business Function"
+    description "Ongoing business behaviour grouped by skill, resource or knowledge, such as Finance or Customer Care.
+                 Use it for what the organisation keeps doing; use Business Process for a sequence with a start, an end and a result."
     aspect "behavior"
     shape "roundedrectangle"
     color "#FFFFC0"
@@ -96,6 +118,8 @@ metamodel archimate {
   }
   elementType businessinteraction {
     displayName "Business Interaction"
+    description "Behaviour performed jointly by several roles or actors, which none performs alone, such as a negotiation.
+                 Use it for the shared activity; use Business Collaboration for the group that performs it."
     aspect "behavior"
     shape "roundedrectangle"
     color "#FFFFC0"
@@ -103,6 +127,8 @@ metamodel archimate {
   }
   elementType businessinterface {
     displayName "Business Interface"
+    description "An access point where a business service is offered to others: a counter, a call centre, a portal, an email address.
+                 Use it for the channel; use Business Service for what is delivered through it."
     aspect "active-structure"
     shape "rectangle"
     color "#FFFFC0"
@@ -110,6 +136,8 @@ metamodel archimate {
   }
   elementType businessobject {
     displayName "Business Object"
+    description "A concept the business works with, as information or as a business item, such as an Invoice or a Customer.
+                 Use it at business level; use Contract for formal agreements, Representation for its physical form, and Data Object for its application form."
     aspect "passive-structure"
     shape "rectangle"
     color "#FFFFC0"
@@ -117,6 +145,8 @@ metamodel archimate {
   }
   elementType businessprocess {
     displayName "Business Process"
+    description "A sequence of business behaviour that leads to a defined result, such as Handle Claim.
+                 Use it for how work flows step by step; use Business Function for the stable grouping of work, and Business Service for what the outside sees."
     aspect "behavior"
     shape "roundedrectangle"
     color "#FFFFC0"
@@ -124,6 +154,8 @@ metamodel archimate {
   }
   elementType businessrole {
     displayName "Business Role"
+    description "A responsibility for performing certain behaviour, which an actor can be assigned to, such as Claims Handler.
+                 Use it for the hat that is worn; use Business Actor for who wears it."
     aspect "active-structure"
     shape "rectangle"
     color "#FFFFC0"
@@ -131,6 +163,8 @@ metamodel archimate {
   }
   elementType businessservice {
     displayName "Business Service"
+    description "Behaviour offered to customers or other parts of the business, seen from outside as the value it delivers.
+                 Use it for what is offered; use Business Process or Function for how it is performed inside, and Business Interface for the channel."
     aspect "behavior"
     shape "roundedrectangle"
     color "#FFFFC0"
@@ -138,6 +172,8 @@ metamodel archimate {
   }
   elementType contract {
     displayName "Contract"
+    description "A formal or informal agreement that sets rights and obligations between parties, such as an SLA or a policy.
+                 Use it instead of Business Object when the binding terms matter; combine it with services in a Product."
     aspect "passive-structure"
     shape "rectangle"
     color "#FFFFC0"
@@ -145,12 +181,16 @@ metamodel archimate {
   }
   elementType product {
     displayName "Product"
+    description "A coherent bundle of services, passive objects and a contract, offered as a whole to customers.
+                 Use it for what is sold or offered as one package; use Business Service for a single offered behaviour."
     shape "rectangle"
     color "#FFFFC0"
     icon "product.svg"
   }
   elementType representation {
     displayName "Representation"
+    description "A perceptible form of a business object, such as a printed form, a PDF or a web page.
+                 Use it when the physical or visual form matters; use Business Object for the information itself."
     aspect "passive-structure"
     shape "rectangle"
     color "#FFFFC0"
@@ -160,6 +200,8 @@ metamodel archimate {
   // Application elements.
   elementType applicationcollaboration {
     displayName "Application Collaboration"
+    description "Two or more application components working together to perform joint behaviour.
+                 Use it when an integrated set acts as one, such as a platform; use Application Interaction for the behaviour they perform together."
     aspect "active-structure"
     shape "roundedrectangle"
     color "#C0FFFF"
@@ -167,6 +209,8 @@ metamodel archimate {
   }
   elementType applicationcomponent {
     displayName "Application Component"
+    description "A modular, deployable piece of software that encapsulates behaviour and data, such as a CRM system or a microservice.
+                 Use it for the system that exists; use Application Service for what it offers, and Application Function for what it does internally."
     aspect "active-structure"
     shape "roundedrectangle"
     color "#C0FFFF"
@@ -174,6 +218,8 @@ metamodel archimate {
   }
   elementType applicationevent {
     displayName "Application Event"
+    description "Something that happens in or to an application and triggers or interrupts its behaviour, such as a timer or a message received.
+                 It is instantaneous, unlike an Application Process."
     aspect "behavior"
     shape "roundedrectangle"
     color "#C0FFFF"
@@ -181,6 +227,8 @@ metamodel archimate {
   }
   elementType applicationfunction {
     displayName "Application Function"
+    description "Automated behaviour that an application component performs, grouped by what it does, such as Calculate Premium.
+                 Use it for internal behaviour; use Application Service for the externally visible offer, and Application Process for an ordered sequence."
     aspect "behavior"
     shape "roundedrectangle"
     color "#C0FFFF"
@@ -188,6 +236,8 @@ metamodel archimate {
   }
   elementType applicationinteraction {
     displayName "Application Interaction"
+    description "Automated behaviour performed jointly by several application components, such as a data synchronisation.
+                 Use it for the shared activity; use Application Collaboration for the group that performs it."
     aspect "behavior"
     shape "roundedrectangle"
     color "#C0FFFF"
@@ -195,6 +245,8 @@ metamodel archimate {
   }
   elementType applicationinterface {
     displayName "Application Interface"
+    description "An access point where an application offers its services to users or other applications: a GUI, an API, a file drop.
+                 Use it for the channel; use Application Service for what is delivered through it."
     aspect "active-structure"
     shape "roundedrectangle"
     color "#C0FFFF"
@@ -202,6 +254,8 @@ metamodel archimate {
   }
   elementType applicationprocess {
     displayName "Application Process"
+    description "A sequence of automated behaviour that produces a defined result, such as a nightly batch run.
+                 Use it for ordered steps; use Application Function for a grouping of behaviour without a set order."
     aspect "behavior"
     shape "roundedrectangle"
     color "#C0FFFF"
@@ -209,6 +263,8 @@ metamodel archimate {
   }
   elementType applicationservice {
     displayName "Application Service"
+    description "Automated behaviour an application offers to its users or to other systems, seen from outside.
+                 Use it for what is offered, such as Policy Lookup; use Application Component for the software that provides it."
     aspect "behavior"
     shape "roundedrectangle"
     color "#C0FFFF"
@@ -216,6 +272,8 @@ metamodel archimate {
   }
   elementType dataobject {
     displayName "Data Object"
+    description "Data structured for automated processing, such as a Customer Record or an Order message.
+                 Use it at application level; use Business Object for the business concept, and Artifact for the file or table that stores it."
     aspect "passive-structure"
     shape "roundedrectangle"
     color "#C0FFFF"
@@ -225,6 +283,8 @@ metamodel archimate {
   // Technology elements.
   elementType artifact {
     displayName "Artifact"
+    description "A physical piece of information used or produced by technology: a file, an executable, a database table, a script.
+                 Use it for what is deployed or stored; use Data Object for the data it carries, and System Software for the platform that runs it."
     aspect "passive-structure"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -232,6 +292,8 @@ metamodel archimate {
   }
   elementType communicationnetwork {
     displayName "Communication Network"
+    description "The physical or logical medium that connects nodes and devices for data transmission, such as a LAN, WAN or VPN.
+                 Use it for the network itself; use Path for a logical link between nodes regardless of medium."
     aspect "active-structure"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -239,6 +301,8 @@ metamodel archimate {
   }
   elementType device {
     displayName "Device"
+    description "A physical IT resource that runs or stores software, such as a server, laptop, phone or router.
+                 Use it for hardware; use System Software for what runs on it, and Node when hardware and software together form one platform."
     aspect "active-structure"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -246,6 +310,8 @@ metamodel archimate {
   }
   elementType material {
     displayName "Material"
+    description "Tangible physical matter, such as raw material, fuel or a finished product, handled by equipment.
+                 Use it for physical goods; use Business Object or Artifact for information."
     aspect "passive-structure"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -253,6 +319,8 @@ metamodel archimate {
   }
   elementType node {
     displayName "Node"
+    description "A computational or physical resource that hosts or runs other things, combining hardware and software, such as an application server or a cluster.
+                 Use it for a platform; use Device or System Software for its parts."
     aspect "active-structure"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -260,6 +328,8 @@ metamodel archimate {
   }
   elementType path {
     displayName "Path"
+    description "A logical link between nodes through which they exchange data or material.
+                 Use it for what is connected to what; use Communication Network or Distribution Network for the medium that carries it."
     aspect "active-structure"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -267,6 +337,8 @@ metamodel archimate {
   }
   elementType systemsoftware {
     displayName "System Software"
+    description "Software that provides an environment for other software, such as an operating system, a database engine or a container runtime.
+                 Use it for the platform; use Device for the hardware below, and Application Component for business software above."
     aspect "active-structure"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -274,6 +346,8 @@ metamodel archimate {
   }
   elementType technologycollaboration {
     displayName "Technology Collaboration"
+    description "Two or more nodes working together to perform joint technology behaviour, such as a failover pair.
+                 Use it for the group; use Technology Interaction for the behaviour they perform together."
     aspect "active-structure"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -281,6 +355,8 @@ metamodel archimate {
   }
   elementType technologycomponent {
     displayName "Technology Component"
+    description "Not an ArchiMate concept: a local type kept because repositories already use it, for a deployable technical building block.
+                 Prefer Node, System Software or Artifact in new ArchiMate models."
     aspect "active-structure"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -288,6 +364,8 @@ metamodel archimate {
   }
   elementType technologyevent {
     displayName "Technology Event"
+    description "Something that happens in the infrastructure and triggers or interrupts technology behaviour, such as a disk full alert or a backup start.
+                 It is instantaneous, unlike a Technology Process."
     aspect "behavior"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -295,6 +373,8 @@ metamodel archimate {
   }
   elementType technologyfunction {
     displayName "Technology Function"
+    description "Technology behaviour grouped by what it does, performed by a node, such as Data Storage or Load Balancing.
+                 Use it for internal behaviour; use Technology Service for what is offered to applications, and Technology Process for an ordered sequence."
     aspect "behavior"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -302,6 +382,8 @@ metamodel archimate {
   }
   elementType technologyinteraction {
     displayName "Technology Interaction"
+    description "Technology behaviour performed jointly by several nodes, such as data replication between sites.
+                 Use it for the shared activity; use Technology Collaboration for the group that performs it."
     aspect "behavior"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -309,6 +391,8 @@ metamodel archimate {
   }
   elementType technologyinterface {
     displayName "Technology Interface"
+    description "An access point where a node offers its technology services, such as a network port, a protocol endpoint or a CLI.
+                 Use it for the channel; use Technology Service for what is delivered through it."
     aspect "active-structure"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -316,6 +400,8 @@ metamodel archimate {
   }
   elementType technologyprocess {
     displayName "Technology Process"
+    description "A sequence of technology behaviour that produces a defined result, such as a deployment pipeline or a backup run.
+                 Use it for ordered steps; use Technology Function for a grouping without a set order."
     aspect "behavior"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -323,6 +409,8 @@ metamodel archimate {
   }
   elementType technologyservice {
     displayName "Technology Service"
+    description "Technology behaviour offered to applications or other nodes, seen from outside, such as Hosting, Messaging or Storage.
+                 Use it for what the platform offers; use Node or System Software for what provides it."
     aspect "behavior"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -332,6 +420,8 @@ metamodel archimate {
   // Physical elements.
   elementType distributionnetwork {
     displayName "Distribution Network"
+    description "A physical network that transports materials or energy, such as a road, rail, pipeline or power grid.
+                 Use it for the movement of physical things; use Communication Network for data."
     aspect "active-structure"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -339,6 +429,8 @@ metamodel archimate {
   }
   elementType equipment {
     displayName "Equipment"
+    description "Physical machinery, tools or instruments that process or use material, such as a robot or a production line.
+                 Use it for physical, non-IT kit; use Device for IT hardware."
     aspect "active-structure"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -346,6 +438,8 @@ metamodel archimate {
   }
   elementType facility {
     displayName "Facility"
+    description "A physical structure or environment that houses equipment or nodes, such as a factory, a warehouse or a data centre.
+                 Use it for the building or plant; use Location for the place where it stands."
     aspect "active-structure"
     shape "roundedrectangle"
     color "#C0FFC0"
@@ -355,54 +449,72 @@ metamodel archimate {
   // Motivation elements.
   elementType assessment {
     displayName "Assessment"
+    description "The outcome of analysing a driver: a strength, weakness, opportunity, threat or finding.
+                 Use it to record what you concluded about a driver; use Driver for the concern itself, and Goal for what you intend in response."
     shape "octagon"
     color "#CCCCFF"
     icon "assessment.svg"
   }
   elementType constraint {
     displayName "Constraint"
+    description "A limitation on how the architecture may be realised, such as a mandated vendor, a budget cap or a deadline.
+                 Use it when something is restricted; use Requirement when something must be provided."
     shape "octagon"
     color "#CCCCFF"
     icon "constraint.svg"
   }
   elementType driver {
     displayName "Driver"
+    description "An internal or external condition that pushes the organisation to change, such as regulation, competition or cost pressure.
+                 Use it for the why behind goals; use Assessment for what you found out about it."
     shape "octagon"
     color "#CCCCFF"
     icon "driver.svg"
   }
   elementType goal {
     displayName "Goal"
+    description "A high-level statement of intent or desired end state, such as Improve customer satisfaction.
+                 Use it for direction; use Outcome for a concrete, measurable result, and Requirement for what a specific system must do."
     shape "octagon"
     color "#CCCCFF"
     icon "goal.svg"
   }
   elementType meaning {
     displayName "Meaning"
+    description "The knowledge or interpretation attached to a concept in a given context, such as what a document means to its reader.
+                 Use it to clarify interpretation; use Value for its worth."
     shape "cloud"
     color "#CCCCFF"
     icon "meaning.svg"
   }
   elementType outcome {
     displayName "Outcome"
+    description "An end result that has been or should be achieved, concrete and ideally measurable, such as 10 percent fewer complaints.
+                 Use it for a specific, checkable result; use Goal for the broader intent it contributes to."
     shape "octagon"
     color "#CCCCFF"
     icon "outcome.svg"
   }
   elementType principle {
     displayName "Principle"
+    description "A general rule or guideline that applies across many systems in a context, such as Buy before build.
+                 Use it for broad guidance; use Requirement for a need on a specific system, and Constraint for a hard limit."
     shape "octagon"
     color "#CCCCFF"
     icon "principle.svg"
   }
   elementType requirement {
     displayName "Requirement"
+    description "A need that a specific system or part of the architecture must fulfil, such as Support single sign-on.
+                 Use it for what must be provided; use Constraint for what restricts the solution, and Principle for guidance that applies everywhere."
     shape "octagon"
     color "#CCCCFF"
     icon "requirement.svg"
   }
   elementType stakeholder {
     displayName "Stakeholder"
+    description "A person, group or organisation with an interest in the architecture or its outcome, such as the CFO or a regulator.
+                 Use it for whose concerns count; use Business Actor or Role when they act inside the business."
     aspect "active-structure"
     shape "octagon"
     color "#CCCCFF"
@@ -410,6 +522,8 @@ metamodel archimate {
   }
   elementType value {
     displayName "Value"
+    description "The worth, usefulness or importance of something to a stakeholder, such as Lower cost or Faster service.
+                 Use it to say why a service or product matters; use Outcome for a measurable result, and Meaning for an interpretation."
     shape "octagon"
     color "#CCCCFF"
     icon "value.svg"
@@ -418,6 +532,8 @@ metamodel archimate {
   // Implementation & migration elements.
   elementType deliverable {
     displayName "Deliverable"
+    description "A precisely defined result of a work package, such as a report, a design or a deployed release.
+                 Use it for what a project hands over; use Work Package for the work itself, and Plateau for the state reached."
     aspect "passive-structure"
     shape "roundedrectangle"
     color "#FFE0E0"
@@ -425,6 +541,8 @@ metamodel archimate {
   }
   elementType gap {
     displayName "Gap"
+    description "The difference between two plateaus: what must be added, changed or removed to move from one state to the other.
+                 Use it for gap analysis between baseline and target; use Work Package for the work that closes it."
     aspect "passive-structure"
     shape "roundedrectangle"
     color "#FFE0E0"
@@ -432,18 +550,24 @@ metamodel archimate {
   }
   elementType implementationevent {
     displayName "Implementation Event"
+    description "A state change in the course of implementation, such as a project start, a milestone or a go-live.
+                 Use it for moments in a roadmap; it has no duration, unlike a Work Package."
     shape "roundedrectangle"
     color "#FFE0E0"
     icon "implementation-event.svg"
   }
   elementType plateau {
     displayName "Plateau"
+    description "A relatively stable state of the architecture over a period of time, such as the baseline, a transition state or the target.
+                 Use it to group what exists at that stage; use Gap for the difference between two plateaus."
     shape "roundedrectangle"
     color "#FFE0E0"
     icon "plateau.svg"
   }
   elementType workpackage {
     displayName "Work Package"
+    description "A unit of work with a clear goal, start and end, such as a project, a programme or a sprint.
+                 Use it for planned change; use Business Process for repeating operational work, and Deliverable for what it produces."
     aspect "behavior"
     shape "roundedrectangle"
     color "#FFE0E0"
@@ -452,18 +576,27 @@ metamodel archimate {
 
   relationshipType composition {
     displayName "Composition"
+    description "The target is an integral part of the source and cannot exist without it; source is the whole, target the part.
+                 Use it for strong ownership, such as an application and its modules; use Aggregation when the part can stand alone or belong to several wholes."
     edgeStyle "solid"
     sourceArrow "filled-diamond"
     color "#0066CC"
+    // ArchiMate composition, points whole->part, so the SOURCE is the parent.
+    // Flagged 2026-08-20: containment in .arch is stated as a relationship.
+    parentChild "source"
   }
   relationshipType aggregation {
     displayName "Aggregation"
+    description "The source groups the target, which can exist independently and may belong to several wholes; source is the whole.
+                 Use it for loose membership; use Composition when the part lives and dies with the whole."
     edgeStyle "solid"
     sourceArrow "hollow-diamond"
     color "#0066CC"
   }
   relationshipType assignment {
     displayName "Assignment"
+    description "Who or what performs or carries the target: an actor to a role, a role to a process, a component to a function, a node to an artifact.
+                 Use it for performs or hosts; use Realization for implements."
     edgeStyle "solid"
     sourceArrow "filled-ball"
     targetArrow "filled"
@@ -471,54 +604,72 @@ metamodel archimate {
   }
   relationshipType realization {
     displayName "Realization"
+    description "The source makes the target concrete or real: a process realises a service, a component realises a data object, an artifact realises a component.
+                 Use it for implements; use Assignment for performs."
     edgeStyle "dashed"
     targetArrow "hollow-triangle"
     color "#0066CC"
   }
   relationshipType serving {
     displayName "Serving"
+    description "The source provides its functionality to the target; the arrow points to the one being served, such as a service to a process or a role.
+                 Use it for offers to; use Access when behaviour reads or writes passive data."
     edgeStyle "solid"
     targetArrow "open"
     color "#0066CC"
   }
   relationshipType uses {
     displayName "Uses"
+    description "Not an ArchiMate 3 relationship: a local type kept for repositories that state a dependency in the user’s direction.
+                 The source depends on the target. Prefer Serving, with the arrow towards the one served, in new ArchiMate models."
     edgeStyle "solid"
     targetArrow "open"
     color "#0066CC"
   }
   relationshipType access {
     displayName "Access"
+    description "Behaviour or an active element reads, writes or otherwise uses a passive object; the source is the actor, the target the data.
+                 Use it for data use; use Serving between behaviours, and Flow for data passed between behaviours."
     edgeStyle "dashed"
     targetArrow "open"
     color "#0066CC"
   }
   relationshipType influence {
     displayName "Influence"
+    description "The source affects the target positively or negatively without a strict dependency, mostly between motivation elements.
+                 Use it for contributes to or hurts, such as a requirement supporting a goal; use Realization when the source fully achieves the target."
     edgeStyle "dashed"
     targetArrow "open"
     color "#0066CC"
   }
   relationshipType triggering {
     displayName "Triggering"
+    description "The source causes the target to start: one behaviour or event follows another in time.
+                 Use it for sequence and causality; use Flow when something such as information or goods is passed along."
     edgeStyle "solid"
     targetArrow "filled"
     color "#0066CC"
   }
   relationshipType flow {
     displayName "Flow"
+    description "Something is transferred from the source behaviour to the target, such as information, money or goods.
+                 Use it for what moves between behaviours; use Triggering when only the order of execution matters."
     edgeStyle "dashed"
     targetArrow "filled"
     color "#0066CC"
   }
   relationshipType specialization {
     displayName "Specialization"
+    description "The source is a particular kind of the target, and inherits its meaning, such as Car Insurance being a kind of Insurance Product.
+                 Use it between elements of the same type only."
     edgeStyle "solid"
     targetArrow "hollow-triangle"
     color "#0066CC"
   }
   relationshipType association {
     displayName "Association"
+    description "An unspecified relationship between two elements, optionally directed, when no other relationship fits.
+                 Use it sparingly and name it; prefer a typed relationship when the meaning is known."
     edgeStyle "solid"
     targetArrow "none"
     color "#0066CC"

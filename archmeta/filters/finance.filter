@@ -1,0 +1,26 @@
+filter Cost-map {
+  description "What each element costs to run, per year"
+  hierarchy "Finance"
+  reads Run-Cost
+  band 0..10000 {
+    description "Up to 10 000"
+    colour "#4fcfa4"
+  }
+  band 10001..100000 {
+    description "Up to 100 000"
+    colour "#e0b400"
+  }
+  band 100001..1000000 {
+    description "Up to 1 000 000"
+    colour "#e8743b"
+  }
+  band 1000001..1000000000 {
+    description "Above 1 000 000"
+    colour "#c62828"
+  }
+  otherwise {
+    description "No cost"
+    colour "#c8ccd2"
+    treatment muted
+  }
+}

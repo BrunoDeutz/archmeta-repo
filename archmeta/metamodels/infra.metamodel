@@ -1,0 +1,416 @@
+// Infrastructure profile — vendor-neutral icon elements and frames.
+// Icons are our own tiles in metamodels/infra/, not vendor artwork; a
+// repository that wants AWS or Azure artwork writes its own profile.
+// Spec: archmeta docs/specs/2026-10-02-infrastructure-diagrams-design.md (L, C).
+metamodel infra {
+
+  // Icon elements: the icon IS the element; the text sits outside it.
+  elementType person {
+    displayName "Person"
+    description "A human: a visitor, a customer, an operator, an architect.
+                 Draw it as the start of a flow, such as who browses the site."
+    shape "icon"
+    icon "person.svg"
+    color "#334155"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType browser {
+    displayName "Browser"
+    description "A web browser, or a browser window an application opens.
+                 Use it for the client side of a web flow; use Workstation for the machine it runs on."
+    shape "icon"
+    icon "browser.svg"
+    color "#6d28d9"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType internet {
+    displayName "Internet"
+    description "The public internet, where it matters to show it.
+                 Draw it between users and your public entry point, such as a CDN or a gateway."
+    shape "icon"
+    icon "internet.svg"
+    color "#6d28d9"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType dns {
+    displayName "DNS"
+    description "A DNS zone or resolver.
+                 Draw it when name resolution is part of the story, such as a domain pointing at a CDN."
+    shape "icon"
+    icon "dns.svg"
+    color "#7c3aed"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType cdn {
+    displayName "CDN"
+    description "A content delivery network distribution in front of an origin.
+                 Use it for edge caching of public content; the origin behind it is often Static Hosting or a Gateway."
+    shape "icon"
+    icon "cdn.svg"
+    color "#c2410c"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType statichosting {
+    displayName "Static Hosting"
+    description "Static files served over HTTP: a generated site, a web root.
+                 Use it when files are served as they are, with no code running per request; otherwise use Service."
+    shape "icon"
+    icon "statichosting.svg"
+    color "#0e7490"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType gitrepo {
+    displayName "Git Repository"
+    description "A git repository, a working copy or a remote.
+                 Use it for where code or content lives; pipelines read from it and pushes reach it."
+    shape "icon"
+    icon "gitrepo.svg"
+    color "#9a3412"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType ci {
+    displayName "Pipeline"
+    description "A build or deploy job: a CI workflow, or a script a person runs by hand.
+                 Draw Deploys to what it creates or starts and Pushes to where it uploads."
+    shape "icon"
+    icon "ci.svg"
+    color "#1d4ed8"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType registry {
+    displayName "Container Registry"
+    description "Where container images are stored and pulled from.
+                 Pipelines push images to it; runtimes and clusters read them from it."
+    shape "icon"
+    icon "registry.svg"
+    color "#0369a1"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType container {
+    displayName "Container Image"
+    description "An OCI image, or the container made from it when shown as one thing.
+                 Use the Runtime frame instead when you need to draw what runs inside the container."
+    shape "icon"
+    icon "container.svg"
+    color "#0b6bcb"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType server {
+    displayName "Server"
+    description "A virtual or physical machine.
+                 Use this icon when the machine is a leaf of the drawing; use the Host frame to draw what runs on it."
+    shape "icon"
+    icon "server.svg"
+    color "#b45309"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType workstation {
+    displayName "Workstation"
+    description "A person's own computer.
+                 Use it for a developer or operator laptop; use the Host frame when you draw what runs on it."
+    shape "icon"
+    icon "workstation.svg"
+    color "#475467"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType service {
+    displayName "Service"
+    description "A running process or application service.
+                 Use it for your own code running somewhere; managed offerings such as Database or Queue have their own types."
+    shape "icon"
+    icon "service.svg"
+    color "#2563eb"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType database {
+    displayName "Database"
+    description "A managed or self-run database.
+                 Use Cache for an in-memory store and Object Storage for files and blobs."
+    shape "icon"
+    icon "database.svg"
+    color "#1e40af"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType objectstorage {
+    displayName "Object Storage"
+    description "A bucket of objects.
+                 Use it for files and blobs addressed by key; use Database for queried records, Static Hosting when the bucket serves a site."
+    shape "icon"
+    icon "objectstorage.svg"
+    color "#15803d"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType secretstore {
+    displayName "Secret Store"
+    description "Where secrets and credentials are kept.
+                 Use it for passwords, tokens and API keys; use Key Management for keys that sign or encrypt."
+    shape "icon"
+    icon "secretstore.svg"
+    color "#a16207"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType keymanagement {
+    displayName "Key Management"
+    description "Cryptographic keys and the service that holds or signs with them.
+                 Use it for a KMS or HSM; plain passwords and tokens belong in Secret Store."
+    shape "icon"
+    icon "keymanagement.svg"
+    color "#b45309"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType identity {
+    displayName "Identity"
+    description "Sign-in, user directories, SSO.
+                 Use it for the identity provider users authenticate against, such as an OIDC provider or a corporate directory."
+    shape "icon"
+    icon "identity.svg"
+    color "#be123c"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType email {
+    displayName "E-mail"
+    description "A mailbox, or a service that sends mail.
+                 Use it where mail is part of a flow, such as sign-up confirmations or alerts."
+    shape "icon"
+    icon "email.svg"
+    color "#0f766e"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType payment {
+    displayName "Payment"
+    description "A payment provider.
+                 Use it for the external service that takes card or bank payments."
+    shape "icon"
+    icon "payment.svg"
+    color "#4d7c0f"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType monitoring {
+    displayName "Monitoring"
+    description "Logs, metrics, alerts.
+                 Use it for where telemetry goes and who gets alerted; draw Flow to it from what it watches."
+    shape "icon"
+    icon "monitoring.svg"
+    color "#be185d"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType file {
+    displayName "File"
+    description "A file that matters to the architecture: a script, a configuration, a licence.
+                 Use it when one file deserves a place on the diagram; use Git Repository for a whole set of files."
+    shape "icon"
+    icon "file.svg"
+    color "#64748b"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType gateway {
+    displayName "Gateway"
+    description "A reverse proxy or ingress in front of a service.
+                 Use it to route traffic to one or a few backends by host or path.
+                 Use Load Balancer to spread the same traffic over many copies, and API Gateway for a managed API front door."
+    shape "icon"
+    icon "gateway.svg"
+    color "#c2410c"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+
+  elementType firewall {
+    displayName "Firewall"
+    description "A network firewall, web application firewall or security group filtering traffic.
+                 Draw it in the path of a flow where traffic is filtered, such as between the internet and a network."
+    shape "icon"
+    icon "firewall.svg"
+    color "#b91c1c"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType loadbalancer {
+    displayName "Load Balancer"
+    description "Spreads incoming traffic across several targets — the natural source of a fan-out.
+                 Use it when many copies serve the same traffic; use Gateway to route to different backends."
+    shape "icon"
+    icon "loadbalancer.svg"
+    color "#ea580c"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType apigateway {
+    displayName "API Gateway"
+    description "A managed entry point for APIs: routing, authentication, throttling.
+                 Use it rather than Gateway when the entry point manages APIs as a product, with keys, quotas and versions."
+    shape "icon"
+    icon "apigateway.svg"
+    color "#be185d"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType queue {
+    displayName "Queue"
+    description "A message queue, topic or event bus between producers and consumers.
+                 Use it for an asynchronous hand-off; a synchronous call is a Flow straight to the service."
+    shape "icon"
+    icon "queue.svg"
+    color "#7c3aed"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType cache {
+    displayName "Cache"
+    description "An in-memory cache in front of a slower store.
+                 Use it rather than Database when the data can be rebuilt and is kept only for speed."
+    shape "icon"
+    icon "cache.svg"
+    color "#0e7490"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+  elementType vpn {
+    displayName "VPN"
+    description "A VPN, private link or peering connection between networks.
+                 Draw it between the networks or sites it joins."
+    shape "icon"
+    icon "vpn.svg"
+    color "#15803d"
+    label "below"
+    iconSize "56"
+    layout element-displayName, element-description
+  }
+
+  // Frames: containers drawn as a labelled boundary, title and icon on the edge.
+  elementType cloud {
+    displayName "Cloud"
+    description "A cloud provider account.
+                 Use it as the outermost frame for what one account or subscription holds; put Regions inside it."
+    shape "frame"
+    icon "cloud.svg"
+    color "#475467"
+  }
+  elementType region {
+    displayName "Region"
+    description "A cloud region.
+                 Use it for a geographic location inside a Cloud; put Networks and managed services inside it."
+    shape "frame"
+    icon "region.svg"
+    color "#475467"
+    contains network, server, service, database, objectstorage, statichosting, secretstore, keymanagement, identity, email, monitoring, container, registry, gateway, firewall, loadbalancer, apigateway, queue, cache, vpn, kubernetes
+  }
+  elementType network {
+    displayName "Network"
+    description "A network or subnet.
+                 Use it to show what shares an address space, in a Region or on premises; nest one in another for subnets."
+    shape "frame"
+    icon "network.svg"
+    color "#7c3aed"
+    contains network, host, server, service, database, container, gateway, runtime, firewall, loadbalancer, apigateway, queue, cache, vpn, kubernetes
+  }
+  elementType host {
+    displayName "Host"
+    description "A machine that runs things: a laptop, a workstation, a server.
+                 Use this frame rather than the Server icon when you draw what runs on the machine, such as Runtimes and Services."
+    shape "frame"
+    icon "host.svg"
+    color "#334155"
+  }
+  elementType runtime {
+    displayName "Runtime"
+    description "A process environment: a container runtime, or one container and what runs inside it.
+                 Use it inside a Host to show what a process or container holds; runtimes can nest."
+    shape "frame"
+    icon "runtime.svg"
+    color "#0b6bcb"
+    style "dashed"
+    contains runtime, service, statichosting, gitrepo, file, keymanagement, database, container
+  }
+  elementType kubernetes {
+    displayName "Kubernetes Cluster"
+    description "A container orchestration cluster, or one namespace of it.
+                 Put Containers, Services and Gateways inside it; it sits in a Network or a Region."
+    shape "frame"
+    icon "kubernetes.svg"
+    color "#1d4ed8"
+    contains kubernetes, container, service, gateway, loadbalancer, apigateway, queue, cache, database
+  }
+  elementType trustboundary {
+    displayName "Trust Boundary"
+    description "Who owns and controls what is inside: an organisation, a vendor.
+                 Use it to show where control changes hands, around anything a third party runs."
+    shape "frame"
+    icon "trustboundary.svg"
+    color "#b91c1c"
+    style "dashed"
+  }
+
+  // Placement: the frame (source) holds the element (target). The one
+  // containment type of this profile — one parent, several children.
+  relationshipType hosts {
+    displayName "Hosts"
+    description "The source frame holds the target: a region holds a bucket, a host holds a runtime.
+                 It is placement, not traffic: the target is drawn inside the source, and each element has one host."
+    edgeStyle "solid"
+    targetArrow "none"
+    color "#94a3b8"
+    parentChild "source"
+  }
+
+  relationshipType flow    { displayName "Flow"    description "Traffic or data moving from source to target.
+                                                                Use it for requests, responses and data in motion, drawn in the direction the traffic goes." edgeStyle "solid"  arrow "filled" color "#4b5563" }
+  relationshipType deploys { displayName "Deploys" description "The source creates or runs the target.
+                                                                Use it from a pipeline or a person to what it creates or starts, never for traffic." edgeStyle "dashed" arrow "open"   color "#4b5563" }
+  relationshipType pushes  { displayName "Pushes"  description "The source uploads or publishes to the target.
+                                                                Use it for a pipeline pushing to a registry, a repository or a bucket." edgeStyle "solid"  arrow "open"   color "#1d4ed8" }
+  relationshipType reads   { displayName "Reads"   description "The source reads from the target.
+                                                                Use it for pulling images, cloning a repository or reading configuration, drawn from reader to source." edgeStyle "dotted" arrow "open"   color "#4b5563" }
+  relationshipType signs   { displayName "Signs"   description "The source has the target sign something.
+                                                                Use it from what needs a signature to the Key Management that holds the key." edgeStyle "dashed" arrow "filled" color "#b45309" }
+}

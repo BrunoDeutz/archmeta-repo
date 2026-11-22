@@ -1,98 +1,103 @@
 metamodel c4 {
   elementType person {
     displayName "Person"
+    description "A human user of the system, or a role that people play.
+                 Draw one when who acts matters; for a machine that calls you, use External System."
     shape "person"
     color "#08427B"
-    icon "person.svg"
   }
 
   elementType softwaresystem {
     displayName "Software System"
-    shape "rectangle"
+    description "The top zoom level: something that delivers value to its users and is owned by one team.
+                 Use it for your own systems in a context view; open it into Containers to show how it is built."
+    shape "square"
     color "#1168BD"
-    icon "software-system.svg"
+    layout element-type, element-displayName, element-description
   }
 
   elementType container {
     displayName "Container"
-    shape "rectangle"
+    description "A separately deployable or runnable unit inside a Software System: a web app, an API, a database, a mobile app.
+                 It holds Components. It means a Docker container only when that is what it is."
+    shape "square"
     color "#438DD5"
-    icon "container.svg"
     contains component
+    layout element-type, element-displayName, element-description
   }
 
   elementType component {
     displayName "Component"
-    shape "roundedrectangle"
+    description "A grouping of related code behind a clear interface inside one Container, such as a controller or a module.
+                 It is not deployed on its own; if it is, it is a Container."
+    shape "square"
     color "#85BBF0"
-    icon "component.svg"
+    layout element-type, element-displayName, element-description
   }
 
   elementType externalsystem {
     displayName "External System"
-    shape "rectangle"
+    description "A software system outside your scope that you depend on or that depends on you: a partner API, a SaaS, another team.
+                 Use it rather than Software System when you neither own it nor describe its inside."
+    shape "roundsquare"
     color "#999999"
-    icon "external-system.svg"
+    layout element-type, element-displayName, element-description
   }
 
   elementType domain {
     displayName "Domain"
-    shape "rectangle"
+    description "A business domain that groups related capabilities, such as Sales or Logistics.
+                 Use it as the top of the business view; it contains Capabilities."
+    shape "roundsquare"
     color "#1168BD"
     contains capability
+    layout element-type, element-displayName, element-description
   }
 
   elementType capability {
     displayName "Capability"
-    shape "rectangle"
+    description "Something the business is able to do, such as Order Management, independent of how it is done.
+                 It sits inside a Domain and contains the Applications that support it."
+    shape "roundsquare"
     color "#438DD5"
     contains application
   }
 
   elementType application {
     displayName "Application"
-    shape "rectangle"
+    description "An application as the business knows it, supporting a Capability.
+                 It bridges the business view and the C4 view: it contains the Containers that implement it."
+    shape "roundsquare"
     color "#438DD5"
     contains container
   }
 
-  relationshipType uses {
-    displayName "Uses"
+relationshipType association {
+    displayName "Association"
+    description "A plain link between two elements, with no direction and no stated meaning.
+                 Use it only when none of the more specific types fits."
     edgeStyle "solid"
-    arrow "open"
-    color "#999999"
-  }
-  relationshipType sendsto {
-    displayName "Sends To"
-    edgeStyle "solid"
-    arrow "filled"
-    color "#999999"
-  }
-  relationshipType dependson {
-    displayName "Depends On"
-    edgeStyle "dashed"
-    arrow "open"
-    color "#999999"
-  }
-  relationshipType includes {
-    displayName "Includes"
-    edgeStyle "solid"
-    arrow "diamond"
-    color "#999999"
-  }
-  // Containment: the source holds the target, which is drawn nested inside it.
-  // The only way an .arch element gets a parent — a dotted name nests nothing.
-  relationshipType holds {
-    displayName "Holds"
-    edgeStyle "solid"
-    sourceArrow "filled-diamond"
-    color "#999999"
-    parentChild "source"
+    targetArrow "none"
+    color "#0066CC"
   }
 
-  attributeType technology {
-    valueType "string"
-    multivalued false
-    appliesTo container, component, application
+  relationshipType realization {
+    displayName "Realization"
+    description "The source implements or makes real the target, such as an application realizing a capability.
+                 Use it to tie a technical element to the business concept it delivers."
+    edgeStyle "dashed"
+    targetArrow "hollow-triangle"
+    color "#0066CC"
   }
+
+  relationshipType uses        { displayName "Uses" description "The source calls or relies on the target at run time, usually waiting for an answer.
+                                                                 Name the protocol or purpose in the label; use Sends To for asynchronous messages."        edgeStyle "solid"  arrow "open"    color "#999999" }
+  relationshipType sendsto     { displayName "Sends To" description "The source sends messages or events to the target, usually asynchronously through a queue or topic.
+                                                                     Use Uses instead for a request that waits for an answer."    edgeStyle "solid"  arrow "filled"  color "#999999" }
+  relationshipType dependson   { displayName "Depends On" description "The source needs the target to build or to work, without calling it at run time: a library, a shared schema, a prerequisite.
+                                                                       Use Uses for run-time calls."  edgeStyle "dashed" arrow "open"    color "#999999" }
+  relationshipType includes    { displayName "Includes" description "The source contains or bundles the target as one of its parts.
+                                                                     Use it for a part-of relation you want drawn as a line rather than as nesting."    edgeStyle "solid"  arrow "diamond" color "#999999" }
+
+  attributeType technology { valueType "string" multivalued false appliesTo container, component, application }
 }

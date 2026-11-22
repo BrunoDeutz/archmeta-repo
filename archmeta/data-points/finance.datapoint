@@ -1,0 +1,10 @@
+data-point Run-Cost {
+  description "What it costs to run, per year"
+  hierarchy "Finance"
+  type number
+}
+data-point Change-Cost {
+  description "What is spent on changing it, per year"
+  hierarchy "Finance"
+  type number
+}

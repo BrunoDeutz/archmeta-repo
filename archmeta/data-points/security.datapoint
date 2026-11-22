@@ -1,0 +1,17 @@
+data-point Data-Classification {
+  description "How confidential the data is"
+  hierarchy "Security"
+  type list
+  value "010 Public"
+  value "020 Internal"
+  value "030 Confidential"
+  value "040 Restricted"
+}
+data-point Personal-Data {
+  description "Whether it holds personal data"
+  hierarchy "Security"
+  type list
+  value "010 None"
+  value "020 Personal"
+  value "030 Sensitive"
+}

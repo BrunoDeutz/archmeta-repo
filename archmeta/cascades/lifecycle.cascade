@@ -1,0 +1,14 @@
+cascade end-of-life {
+  description "The end of life of what it runs on, carried up: the earliest date wins"
+  layers availability-up
+  reads end-of-life
+  writes end-of-life-from
+  merge keep-lowest
+}
+cascade end-of-support {
+  description "The end of support of what it runs on, carried up: the earliest date wins"
+  layers availability-up
+  reads end-of-support
+  writes end-of-support-from
+  merge keep-lowest
+}

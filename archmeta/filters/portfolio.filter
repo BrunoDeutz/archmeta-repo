@@ -1,0 +1,66 @@
+filter Criticality-map {
+  description "How much the business depends on each element"
+  hierarchy "Portfolio"
+  reads Business-Criticality
+  band "040 Mission critical" {
+    colour "#c62828"
+  }
+  band "030 Business critical" {
+    colour "#e8743b"
+  }
+  band "020 Operational" {
+    colour "#e0b400"
+  }
+  band "010 Administrative" {
+    colour "#4fcfa4"
+  }
+  otherwise {
+    description "No criticality"
+    colour "#c8ccd2"
+    treatment muted
+  }
+}
+
+filter TIME-map {
+  description "What to do with each element: Tolerate, Invest, Migrate or Eliminate"
+  hierarchy "Portfolio"
+  reads TIME
+  band "010 Eliminate" {
+    colour "#c62828"
+  }
+  band "020 Migrate" {
+    colour "#e8743b"
+  }
+  band "030 Tolerate" {
+    colour "#e0b400"
+  }
+  band "040 Invest" {
+    colour "#4fcfa4"
+  }
+  otherwise {
+    description "Not classified"
+    colour "#c8ccd2"
+    treatment muted
+  }
+}
+
+filter Poor-fit {
+  description "What fits the business poorly or is technically weak"
+  hierarchy "Portfolio"
+  where Functional-Fit less-than "030 Appropriate" colour "#c62828" description "Poor functional fit"
+  where Technical-Fit less-than "030 Adequate" colour "#e8743b" description "Poor technical fit"
+  join or
+  otherwise {
+    colour "#c8ccd2"
+    treatment muted
+  }
+}
+
+filter Not-filled-in {
+  description "What has no criticality or no owner yet"
+  hierarchy "Portfolio"
+  where Business-Criticality is-missing colour "#e8743b" description "No criticality"
+  where Business-Owner is-missing colour "#e0b400" description "No business owner"
+  where IT-Owner is-missing colour "#8e7cc3" description "No IT owner"
+  join or
+}

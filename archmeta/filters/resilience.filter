@@ -1,0 +1,38 @@
+filter Recovery-gap {
+  description "Where the recovery time achieved does not meet the recovery time asked for"
+  hierarchy "Resilience"
+  where RTO greater-than RTA-from colour "#dd2222" description "Asks for more than what it runs on delivers"
+  where RTA less-than RTO-from colour "#92420c" description "Delivers less than what relies on it asks for"
+  where RTO-from greater-than RTA-from colour "#c4a75a" description "On the way between the two"
+  join or
+  otherwise {
+    colour "#c8ccd2"
+    treatment muted
+  }
+}
+
+filter Data-loss-gap {
+  description "Where the data lost in fact exceeds the data loss accepted"
+  hierarchy "Resilience"
+  where RPO greater-than RPA-from colour "#dd2222" description "Asks for more than what it runs on delivers"
+  where RPA less-than RPO-from colour "#92420c" description "Delivers less than what relies on it asks for"
+  where RPO-from greater-than RPA-from colour "#c4a75a" description "On the way between the two"
+  join or
+  otherwise {
+    colour "#c8ccd2"
+    treatment muted
+  }
+}
+
+filter Availability-gap {
+  description "Where the availability delivered is below the availability asked for"
+  hierarchy "Resilience"
+  where Availability-Requirement greater-than Availability-Achieved-from colour "#dd2222" description "Asks for more than what it runs on delivers"
+  where Availability-Achieved less-than Availability-Requirement-from colour "#92420c" description "Delivers less than what relies on it asks for"
+  where Availability-Requirement-from greater-than Availability-Achieved-from colour "#c4a75a" description "On the way between the two"
+  join or
+  otherwise {
+    colour "#c8ccd2"
+    treatment muted
+  }
+}

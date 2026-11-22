@@ -1,0 +1,36 @@
+data-point Business-Criticality {
+  description "How much the business depends on it"
+  hierarchy "Portfolio"
+  type list
+  value "010 Administrative"
+  value "020 Operational"
+  value "030 Business critical"
+  value "040 Mission critical"
+}
+data-point Functional-Fit {
+  description "How well it does what the business needs"
+  hierarchy "Portfolio"
+  type list
+  value "010 Unreasonable"
+  value "020 Insufficient"
+  value "030 Appropriate"
+  value "040 Perfect"
+}
+data-point Technical-Fit {
+  description "How sound it is technically"
+  hierarchy "Portfolio"
+  type list
+  value "010 Inappropriate"
+  value "020 Unreasonable"
+  value "030 Adequate"
+  value "040 Fully appropriate"
+}
+data-point TIME {
+  description "What to do with it: Tolerate, Invest, Migrate or Eliminate"
+  hierarchy "Portfolio"
+  type list
+  value "010 Eliminate"
+  value "020 Migrate"
+  value "030 Tolerate"
+  value "040 Invest"
+}

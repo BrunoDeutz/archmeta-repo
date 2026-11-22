@@ -1,0 +1,20 @@
+data-point Department {
+  description "The department it belongs to"
+  hierarchy "Organisation"
+  type group
+}
+data-point Business-Owner {
+  description "Who answers for it in the business"
+  hierarchy "Organisation"
+  type string
+}
+data-point IT-Owner {
+  description "Who answers for it in IT"
+  hierarchy "Organisation"
+  type string
+}
+data-point Users {
+  description "How many people use it"
+  hierarchy "Organisation"
+  type number
+}

@@ -1,0 +1,48 @@
+data-point RTO {
+  description "Recovery Time Objective: how fast it must be back"
+  hierarchy "Resilience.Recovery"
+  type list
+  value "010 Week"
+  value "020 Day"
+  value "030 Minutes"
+}
+data-point RTA {
+  description "Recovery Time Actual: how fast it is back in fact"
+  hierarchy "Resilience.Recovery"
+  type list
+  value "010 Week"
+  value "020 Day"
+  value "030 Minutes"
+}
+data-point RPO {
+  description "Recovery Point Objective: how much data may be lost"
+  hierarchy "Resilience.Recovery"
+  type list
+  value "010 Week"
+  value "020 Day"
+  value "030 Minutes"
+}
+data-point RPA {
+  description "Recovery Point Actual: how much data is lost in fact"
+  hierarchy "Resilience.Recovery"
+  type list
+  value "010 Week"
+  value "020 Day"
+  value "030 Minutes"
+}
+data-point Availability-Requirement {
+  description "The availability the business asks for"
+  hierarchy "Resilience.Availability"
+  type list
+  value "010 Low"
+  value "020 Medium"
+  value "030 High"
+}
+data-point Availability-Achieved {
+  description "The availability it delivers"
+  hierarchy "Resilience.Availability"
+  type list
+  value "010 Low"
+  value "020 Medium"
+  value "030 High"
+}

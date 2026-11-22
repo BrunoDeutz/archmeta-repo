@@ -2,64 +2,127 @@ metamodel core {
   // Universal default element types (per CLAUDE.md §4.1, §4.13).
   elementType person {
     displayName "Person"
+    description "A human, or a role people play, that interacts with the systems.
+                 Use it for users, operators and anyone whose part in the picture matters."
     shape "person"
   }
   elementType system {
     displayName "System"
+    description "A software system at the coarsest grain: something with its own owner and purpose.
+                 Use it when its inside does not matter; split it into Services, Databases and UIs when it does."
     shape "rectangle"
   }
   elementType service {
     displayName "Service"
+    description "A running piece of software that offers functionality to others, such as an API or a backend process.
+                 Use it for a part of a System; use Database or Queue when its job is to store or carry data."
     shape "rectangle"
   }
   elementType database {
     displayName "Database"
+    description "A store of persistent data: a relational database, a document store, a file share used as one.
+                 Use it rather than Service when holding data is the job."
     shape "cylinder"
   }
   elementType queue {
     displayName "Queue"
+    description "A channel that carries messages from producers to consumers: a queue, a topic, an event bus.
+                 Use it to show asynchronous communication explicitly instead of a direct link."
     shape "rectangle"
   }
   elementType ui {
     displayName "UI"
+    description "A user interface: a web front end, a mobile app, a desktop client.
+                 Use it for the part people touch, kept apart from the Services behind it."
     shape "rectangle"
   }
   elementType external {
     displayName "External"
+    description "Anything outside your scope that you interact with: a partner, a SaaS, a public API.
+                 Use it rather than System when you neither own it nor describe its inside."
     shape "cloud"
   }
   elementType group {
     displayName "Group"
+    description "A named set of elements with no meaning of its own, such as a team, a zone or a release.
+                 Use it to gather things when no other type says why they belong together."
     shape "rectangle"
   }
-
-  // Relationship types. `uses`, `sendsto`, `dependson` and `holds` carry the
-  // same names as in c4, so a core element connects to a c4 one by name (a
-  // cross-metamodel pair is offered only the names both metamodels declare).
-  relationshipType uses {
-    displayName "Uses"
-    edgeStyle "solid"
-    arrow "open"
-    color "#999999"
-  }
-  relationshipType sendsto {
-    displayName "Sends To"
-    edgeStyle "solid"
-    arrow "filled"
-    color "#999999"
-  }
-  relationshipType dependson {
-    displayName "Depends On"
-    edgeStyle "dashed"
-    arrow "open"
-    color "#999999"
-  }
-  // Containment: the source holds the target, which is drawn nested inside it.
-  relationshipType holds {
-    displayName "Holds"
+relationshipType composition {
+    displayName "Composition"
+    description "The source is a whole and the target one of its parts, which cannot exist without it.
+                 This is the containment type of this profile: the target is nested in the source and has one parent only."
     edgeStyle "solid"
     sourceArrow "filled-diamond"
-    color "#999999"
+    color "#0066CC"
+    // ArchiMate composition, points whole->part, so the SOURCE is the parent.
+    // Flagged 2026-08-20: containment in .arch is stated as a relationship.
     parentChild "source"
   }
+  relationshipType aggregation {
+    displayName "Aggregation"
+    description "The source groups the target, which can exist on its own and belong to other groups too.
+                 Use it rather than Composition when the part outlives the whole or is shared."
+    edgeStyle "solid"
+    sourceArrow "hollow-diamond"
+    color "#0066CC"
+  }
+  relationshipType assignment {
+    displayName "Assignment"
+    description "The source is responsible for, or performs, the target: an actor assigned to a role, a system to a function.
+                 Use it to say who or what does the work."
+    edgeStyle "solid"
+    sourceArrow "filled-ball"
+    targetArrow "filled"
+    color "#0066CC"
+  }
+  relationshipType realization {
+    displayName "Realization"
+    description "The source implements the target: the concrete realizes the abstract, such as a service realizing a requirement.
+                 Use it to link an implementation to what it fulfils."
+    edgeStyle "dashed"
+    targetArrow "hollow-triangle"
+    color "#0066CC"
+  }
+  relationshipType serving {
+    displayName "Serving"
+    description "The source provides its functionality to the target.
+                 Draw it from provider to consumer; Uses says the same from the consumer side."
+    edgeStyle "solid"
+    targetArrow "open"
+    color "#0066CC"
+  }
+  relationshipType uses {
+    displayName "Uses"
+    description "The source relies on the target to do its job.
+                 Draw it from consumer to provider; Serving says the same from the provider side."
+    edgeStyle "solid"
+    targetArrow "open"
+    color "#0066CC"
+  }
+  relationshipType access {
+    displayName "Access"
+    description "The source reads or writes the data held by the target.
+                 Use it from a system or behaviour to a Database or other store, not between two active elements."
+    edgeStyle "dashed"
+    targetArrow "open"
+    color "#0066CC"
+  }
+  relationshipType influence {
+    displayName "Influence"
+    description "The source affects the target without a hard dependency, such as a driver influencing a goal.
+                 Use it for motivation and other soft effects."
+    edgeStyle "dashed"
+    targetArrow "open"
+    color "#0066CC"
+  }
+  relationshipType triggering {
+    displayName "Triggering"
+    description "The source causes the target to start, one after the other in time.
+                 Use it for sequence and causality between behaviours; use Uses or Serving for dependency."
+    edgeStyle "solid"
+    targetArrow "filled"
+    color "#0066CC"
+  }
+
 }

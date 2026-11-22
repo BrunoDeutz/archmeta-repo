@@ -1,0 +1,62 @@
+filter End-of-life-exposure {
+  description "Where are we exposed to end of life? Applications and processes take the earliest date of what they run on."
+  hierarchy "Lifecycle"
+  param as-of
+  param horizon
+  reads end-of-life-from
+  band before $as-of {
+    description "Past end of life"
+    colour "#c62828"
+  }
+  band before $horizon {
+    description "End of life before the horizon"
+    colour "#e09b00"
+  }
+  band after $horizon {
+    description "Alive beyond the horizon"
+    colour "#4fcfa4"
+  }
+  otherwise {
+    description "No end-of-life date"
+    colour "#c8ccd2"
+    treatment muted
+  }
+}
+
+filter End-of-support-exposure {
+  description "Where are we exposed to the end of the vendor's support? Applications and processes take the earliest date of what they run on."
+  hierarchy "Lifecycle"
+  param as-of
+  param horizon
+  reads end-of-support-from
+  band before $as-of {
+    description "Out of support"
+    colour "#c62828"
+  }
+  band before $horizon {
+    description "Out of support before the horizon"
+    colour "#e09b00"
+  }
+  band after $horizon {
+    description "Supported beyond the horizon"
+    colour "#4fcfa4"
+  }
+  otherwise {
+    description "No end-of-support date"
+    colour "#c8ccd2"
+    treatment muted
+  }
+}
+
+filter Critical-on-obsolete {
+  description "Business critical or mission critical, resting on something past its end of life at the date"
+  hierarchy "Lifecycle"
+  param as-of
+  where Business-Criticality-from greater-than "020 Operational" colour "#c62828" description "Critical, on something past end of life"
+  where end-of-life-from less-than $as-of
+  join and
+  otherwise {
+    colour "#c8ccd2"
+    treatment muted
+  }
+}

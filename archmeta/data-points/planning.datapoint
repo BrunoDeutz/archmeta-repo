@@ -1,0 +1,20 @@
+data-point start-date {
+  description "Beginning of an action"
+  hierarchy "Planning.Roadmap"
+  type date
+}
+data-point end-date {
+  description "End of an action"
+  hierarchy "Planning.Roadmap"
+  type date
+}
+data-point initiative-duration {
+  description "How long an action lasts"
+  hierarchy "Planning.Roadmap"
+  type duration
+}
+data-point milestone {
+  description "A date that matters on the way"
+  hierarchy "Planning.Roadmap"
+  type date
+}

@@ -1,6 +1,8 @@
 metamodel data {
   elementType model {
     displayName "Data Model"
+    description "A data model: a named set of Entities that belong together, such as the schema of one application or domain.
+                 Use it as the frame, and put what is stored inside it as Entities."
     shape "rectangle"
     color "#5A6473"
     contains entity
@@ -8,20 +10,36 @@ metamodel data {
 
   elementType entity {
     displayName "Entity"
+    description "One kind of thing whose data is stored, such as Customer or Order, with its attributes.
+                 It lives inside a Data Model; link entities to each other with Relation."
     shape "entity"
     color "#2B6CB0"
   }
 
   relationshipType relation {
     displayName "Relation"
+    description "A link between two Entities, such as a foreign key or a one-to-many reference.
+                 Draw it from the referencing entity to the one it refers to."
     edgeStyle "solid"
     arrow "open"
     color "#999999"
   }
 
-  attributeType cardinality {
-    valueType "string"
-    multivalued false
-    appliesTo relation
+  relationshipType association {
+    displayName "Association"
+    description "A loose link with no direction, such as a data model associated with a business concept.
+                 Use Relation between Entities, and Uses for a system that reads or writes the data."
+    edgeStyle "solid"
+    targetArrow "none"
+    color "#0066CC"
+  }
+
+  relationshipType uses {
+    displayName "Uses"
+    description "The source uses the data in the target, such as an application using a data model.
+                 Use it to connect the data view to the systems that read or write it."
+    edgeStyle "solid"
+    targetArrow "open"
+    color "#0066CC"
   }
 }

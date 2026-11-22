@@ -1,0 +1,42 @@
+cascade RTO {
+  description "The recovery time the business asks for, carried down to what it relies on: the strictest wins"
+  layers availability-down
+  reads RTO
+  writes RTO-from
+  merge keep-highest
+}
+cascade RTA {
+  description "The recovery time achieved, carried up from what it runs on: the weakest wins"
+  layers availability-up
+  reads RTA
+  writes RTA-from
+  merge keep-lowest
+}
+cascade RPO {
+  description "The data loss the business accepts, carried down to what it relies on: the strictest wins"
+  layers availability-down
+  reads RPO
+  writes RPO-from
+  merge keep-highest
+}
+cascade RPA {
+  description "The data loss in fact, carried up from what it runs on: the weakest wins"
+  layers availability-up
+  reads RPA
+  writes RPA-from
+  merge keep-lowest
+}
+cascade Availability-Requirement {
+  description "The availability the business asks for, carried down to what it relies on: the highest wins"
+  layers availability-down
+  reads Availability-Requirement
+  writes Availability-Requirement-from
+  merge keep-highest
+}
+cascade Availability-Achieved {
+  description "The availability delivered, carried up from what it runs on: the lowest wins"
+  layers availability-up
+  reads Availability-Achieved
+  writes Availability-Achieved-from
+  merge keep-lowest
+}

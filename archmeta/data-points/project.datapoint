@@ -1,0 +1,15 @@
+data-point lifecycle {
+  description "Set by projects: future or deprecated"
+  hierarchy "Project"
+  type lifecycle
+}
+data-point project {
+  description "The decided project that changed this last"
+  hierarchy "Project"
+  type string
+}
+data-point project-date {
+  description "The delivery date of that project"
+  hierarchy "Project"
+  type date
+}

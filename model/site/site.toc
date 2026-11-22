@@ -1,9 +1,3 @@
 {
-  "entries": [
-    {
-      "type": "section",
-      "title": "Overview",
-      "children": []
-    }
-  ]
+  "entries": []
 }

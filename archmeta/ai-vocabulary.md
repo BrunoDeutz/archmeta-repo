@@ -40,7 +40,7 @@ relationship <name> {
   unnamed relationship is reported as `relationship-unnamed`.
 - A name is a dotted path. `orders.api` is an identifier, and nothing more —
   **the dots do not create a hierarchy** in `.arch`.
-  Nesting comes from a containment relationship: `c4:holds`, `core:holds`, marked below.
+  Nesting comes from a containment relationship: `archimate:composition`, `core:composition`, `infra:hosts`, marked below.
 - Identifiers are case-insensitive, and every element has exactly one parent.
 - File organisation is free. Which file a thing lives in never changes its identity,
   so group by whatever makes the model readable.
@@ -60,104 +60,105 @@ that does not exist.
 
 **Element types**
 
-- `archimate:applicationcollaboration` — Application Collaboration
-- `archimate:applicationcomponent` — Application Component
-- `archimate:applicationevent` — Application Event
-- `archimate:applicationfunction` — Application Function
-- `archimate:applicationinteraction` — Application Interaction
-- `archimate:applicationinterface` — Application Interface
-- `archimate:applicationprocess` — Application Process
-- `archimate:applicationservice` — Application Service
-- `archimate:artifact` — Artifact
-- `archimate:assessment` — Assessment
-- `archimate:businessactor` — Business Actor
-- `archimate:businesscollaboration` — Business Collaboration
-- `archimate:businessevent` — Business Event
-- `archimate:businessfunction` — Business Function
-- `archimate:businessinteraction` — Business Interaction
-- `archimate:businessinterface` — Business Interface
-- `archimate:businessobject` — Business Object
-- `archimate:businessprocess` — Business Process
-- `archimate:businessrole` — Business Role
-- `archimate:businessservice` — Business Service
-- `archimate:capability` — Capability
-- `archimate:communicationnetwork` — Communication Network
-- `archimate:constraint` — Constraint
-- `archimate:contract` — Contract
-- `archimate:courseofaction` — Course Of Action
-- `archimate:dataobject` — Data Object
-- `archimate:deliverable` — Deliverable
-- `archimate:device` — Device
-- `archimate:distributionnetwork` — Distribution Network
-- `archimate:driver` — Driver
-- `archimate:equipment` — Equipment
-- `archimate:facility` — Facility
-- `archimate:gap` — Gap
-- `archimate:goal` — Goal
-- `archimate:grouping` — Grouping
-- `archimate:implementationevent` — Implementation Event
-- `archimate:junction` — Junction
-- `archimate:location` — Location
-- `archimate:material` — Material
-- `archimate:meaning` — Meaning
-- `archimate:node` — Node
-- `archimate:outcome` — Outcome
-- `archimate:path` — Path
-- `archimate:plateau` — Plateau
-- `archimate:principle` — Principle
-- `archimate:product` — Product
-- `archimate:representation` — Representation
-- `archimate:requirement` — Requirement
-- `archimate:resource` — Resource
-- `archimate:stakeholder` — Stakeholder
-- `archimate:systemsoftware` — System Software
-- `archimate:technologycollaboration` — Technology Collaboration
-- `archimate:technologycomponent` — Technology Component
-- `archimate:technologyevent` — Technology Event
-- `archimate:technologyfunction` — Technology Function
-- `archimate:technologyinteraction` — Technology Interaction
-- `archimate:technologyinterface` — Technology Interface
-- `archimate:technologyprocess` — Technology Process
-- `archimate:technologyservice` — Technology Service
-- `archimate:value` — Value
-- `archimate:valuestream` — Value Stream
-- `archimate:workpackage` — Work Package
+- `archimate:applicationcollaboration` — Two or more application components working together to perform joint behaviour. Use it when an integrated set acts as one, such as a platform; use Application Interaction for the behaviour they perform together.
+- `archimate:applicationcomponent` — A modular, deployable piece of software that encapsulates behaviour and data, such as a CRM system or a microservice. Use it for the system that exists; use Application Service for what it offers, and Application Function for what it does internally.
+- `archimate:applicationevent` — Something that happens in or to an application and triggers or interrupts its behaviour, such as a timer or a message received. It is instantaneous, unlike an Application Process.
+- `archimate:applicationfunction` — Automated behaviour that an application component performs, grouped by what it does, such as Calculate Premium. Use it for internal behaviour; use Application Service for the externally visible offer, and Application Process for an ordered sequence.
+- `archimate:applicationinteraction` — Automated behaviour performed jointly by several application components, such as a data synchronisation. Use it for the shared activity; use Application Collaboration for the group that performs it.
+- `archimate:applicationinterface` — An access point where an application offers its services to users or other applications: a GUI, an API, a file drop. Use it for the channel; use Application Service for what is delivered through it.
+- `archimate:applicationprocess` — A sequence of automated behaviour that produces a defined result, such as a nightly batch run. Use it for ordered steps; use Application Function for a grouping of behaviour without a set order.
+- `archimate:applicationservice` — Automated behaviour an application offers to its users or to other systems, seen from outside. Use it for what is offered, such as Policy Lookup; use Application Component for the software that provides it.
+- `archimate:artifact` — A physical piece of information used or produced by technology: a file, an executable, a database table, a script. Use it for what is deployed or stored; use Data Object for the data it carries, and System Software for the platform that runs it.
+- `archimate:assessment` — The outcome of analysing a driver: a strength, weakness, opportunity, threat or finding. Use it to record what you concluded about a driver; use Driver for the concern itself, and Goal for what you intend in response.
+- `archimate:businessactor` — An organisational entity that performs behaviour: a person, a department, a company or a partner. Use it for who someone is; use Business Role for the responsibility they take on, which several actors can fill.
+- `archimate:businesscollaboration` — Two or more business roles or actors working together as a temporary or lasting whole. Use it when the joint party matters, such as a sales and legal team on a deal; use Business Interaction for the behaviour they perform together.
+- `archimate:businessevent` — Something that happens and triggers or interrupts business behaviour, like an order received or a month end. Use it as the start or end of a process; it has no duration, unlike a Business Process.
+- `archimate:businessfunction` — Ongoing business behaviour grouped by skill, resource or knowledge, such as Finance or Customer Care. Use it for what the organisation keeps doing; use Business Process for a sequence with a start, an end and a result.
+- `archimate:businessinteraction` — Behaviour performed jointly by several roles or actors, which none performs alone, such as a negotiation. Use it for the shared activity; use Business Collaboration for the group that performs it.
+- `archimate:businessinterface` — An access point where a business service is offered to others: a counter, a call centre, a portal, an email address. Use it for the channel; use Business Service for what is delivered through it.
+- `archimate:businessobject` — A concept the business works with, as information or as a business item, such as an Invoice or a Customer. Use it at business level; use Contract for formal agreements, Representation for its physical form, and Data Object for its application form.
+- `archimate:businessprocess` — A sequence of business behaviour that leads to a defined result, such as Handle Claim. Use it for how work flows step by step; use Business Function for the stable grouping of work, and Business Service for what the outside sees.
+- `archimate:businessrole` — A responsibility for performing certain behaviour, which an actor can be assigned to, such as Claims Handler. Use it for the hat that is worn; use Business Actor for who wears it.
+- `archimate:businessservice` — Behaviour offered to customers or other parts of the business, seen from outside as the value it delivers. Use it for what is offered; use Business Process or Function for how it is performed inside, and Business Interface for the channel.
+- `archimate:capability` — An ability the organisation has or wants, described independently of how or by whom it is delivered. Use it for stable, what-we-can-do planning; use Business Function for how work is actually organised, and Value Stream for the stages that create value.
+- `archimate:communicationnetwork` — The physical or logical medium that connects nodes and devices for data transmission, such as a LAN, WAN or VPN. Use it for the network itself; use Path for a logical link between nodes regardless of medium.
+- `archimate:constraint` — A limitation on how the architecture may be realised, such as a mandated vendor, a budget cap or a deadline. Use it when something is restricted; use Requirement when something must be provided.
+- `archimate:contract` — A formal or informal agreement that sets rights and obligations between parties, such as an SLA or a policy. Use it instead of Business Object when the binding terms matter; combine it with services in a Product.
+- `archimate:courseofaction` — An approach or plan for using capabilities and resources to reach a goal. Use it for strategic choices, such as grow through partnerships; use Work Package for the concrete project that implements it.
+- `archimate:dataobject` — Data structured for automated processing, such as a Customer Record or an Order message. Use it at application level; use Business Object for the business concept, and Artifact for the file or table that stores it.
+- `archimate:deliverable` — A precisely defined result of a work package, such as a report, a design or a deployed release. Use it for what a project hands over; use Work Package for the work itself, and Plateau for the state reached.
+- `archimate:device` — A physical IT resource that runs or stores software, such as a server, laptop, phone or router. Use it for hardware; use System Software for what runs on it, and Node when hardware and software together form one platform.
+- `archimate:distributionnetwork` — A physical network that transports materials or energy, such as a road, rail, pipeline or power grid. Use it for the movement of physical things; use Communication Network for data.
+- `archimate:driver` — An internal or external condition that pushes the organisation to change, such as regulation, competition or cost pressure. Use it for the why behind goals; use Assessment for what you found out about it.
+- `archimate:equipment` — Physical machinery, tools or instruments that process or use material, such as a robot or a production line. Use it for physical, non-IT kit; use Device for IT hardware.
+- `archimate:facility` — A physical structure or environment that houses equipment or nodes, such as a factory, a warehouse or a data centre. Use it for the building or plant; use Location for the place where it stands.
+- `archimate:gap` — The difference between two plateaus: what must be added, changed or removed to move from one state to the other. Use it for gap analysis between baseline and target; use Work Package for the work that closes it.
+- `archimate:goal` — A high-level statement of intent or desired end state, such as Improve customer satisfaction. Use it for direction; use Outcome for a concrete, measurable result, and Requirement for what a specific system must do.
+- `archimate:grouping` — Gathers any concepts that belong together for a reason of your own, such as a domain or a programme scope. Use it to frame a set visually and semantically; use Location for where things are, and Aggregation when the whole is itself a real element.
+- `archimate:implementationevent` — A state change in the course of implementation, such as a project start, a milestone or a go-live. Use it for moments in a roadmap; it has no duration, unlike a Work Package.
+- `archimate:junction` — A connector that splits or joins relationships of the same kind, as an AND or OR point. Use it where one trigger or flow fans out to several targets, or several converge on one; it carries no meaning of its own.
+- `archimate:location` — A place where things are: a site, a city, a region, or a virtual zone. Use it to show where actors, nodes or facilities sit; use Facility for the physical building or plant itself, and Grouping for non-geographic sets.
+- `archimate:material` — Tangible physical matter, such as raw material, fuel or a finished product, handled by equipment. Use it for physical goods; use Business Object or Artifact for information.
+- `archimate:meaning` — The knowledge or interpretation attached to a concept in a given context, such as what a document means to its reader. Use it to clarify interpretation; use Value for its worth.
+- `archimate:node` — A computational or physical resource that hosts or runs other things, combining hardware and software, such as an application server or a cluster. Use it for a platform; use Device or System Software for its parts.
+- `archimate:outcome` — An end result that has been or should be achieved, concrete and ideally measurable, such as 10 percent fewer complaints. Use it for a specific, checkable result; use Goal for the broader intent it contributes to.
+- `archimate:path` — A logical link between nodes through which they exchange data or material. Use it for what is connected to what; use Communication Network or Distribution Network for the medium that carries it.
+- `archimate:plateau` — A relatively stable state of the architecture over a period of time, such as the baseline, a transition state or the target. Use it to group what exists at that stage; use Gap for the difference between two plateaus.
+- `archimate:principle` — A general rule or guideline that applies across many systems in a context, such as Buy before build. Use it for broad guidance; use Requirement for a need on a specific system, and Constraint for a hard limit.
+- `archimate:product` — A coherent bundle of services, passive objects and a contract, offered as a whole to customers. Use it for what is sold or offered as one package; use Business Service for a single offered behaviour.
+- `archimate:representation` — A perceptible form of a business object, such as a printed form, a PDF or a web page. Use it when the physical or visual form matters; use Business Object for the information itself.
+- `archimate:requirement` — A need that a specific system or part of the architecture must fulfil, such as Support single sign-on. Use it for what must be provided; use Constraint for what restricts the solution, and Principle for guidance that applies everywhere.
+- `archimate:resource` — An asset the organisation owns or controls: people, money, brand, data or equipment, seen strategically. Use it in capability planning; use Business Object, Equipment or Business Actor when you model the concrete thing in its own layer.
+- `archimate:stakeholder` — A person, group or organisation with an interest in the architecture or its outcome, such as the CFO or a regulator. Use it for whose concerns count; use Business Actor or Role when they act inside the business.
+- `archimate:systemsoftware` — Software that provides an environment for other software, such as an operating system, a database engine or a container runtime. Use it for the platform; use Device for the hardware below, and Application Component for business software above.
+- `archimate:technologycollaboration` — Two or more nodes working together to perform joint technology behaviour, such as a failover pair. Use it for the group; use Technology Interaction for the behaviour they perform together.
+- `archimate:technologycomponent` — Not an ArchiMate concept: a local type kept because repositories already use it, for a deployable technical building block. Prefer Node, System Software or Artifact in new ArchiMate models.
+- `archimate:technologyevent` — Something that happens in the infrastructure and triggers or interrupts technology behaviour, such as a disk full alert or a backup start. It is instantaneous, unlike a Technology Process.
+- `archimate:technologyfunction` — Technology behaviour grouped by what it does, performed by a node, such as Data Storage or Load Balancing. Use it for internal behaviour; use Technology Service for what is offered to applications, and Technology Process for an ordered sequence.
+- `archimate:technologyinteraction` — Technology behaviour performed jointly by several nodes, such as data replication between sites. Use it for the shared activity; use Technology Collaboration for the group that performs it.
+- `archimate:technologyinterface` — An access point where a node offers its technology services, such as a network port, a protocol endpoint or a CLI. Use it for the channel; use Technology Service for what is delivered through it.
+- `archimate:technologyprocess` — A sequence of technology behaviour that produces a defined result, such as a deployment pipeline or a backup run. Use it for ordered steps; use Technology Function for a grouping without a set order.
+- `archimate:technologyservice` — Technology behaviour offered to applications or other nodes, seen from outside, such as Hosting, Messaging or Storage. Use it for what the platform offers; use Node or System Software for what provides it.
+- `archimate:value` — The worth, usefulness or importance of something to a stakeholder, such as Lower cost or Faster service. Use it to say why a service or product matters; use Outcome for a measurable result, and Meaning for an interpretation.
+- `archimate:valuestream` — A sequence of stages that together produce a result of value for a customer or stakeholder. Use it to show value creation end to end, stage by stage; use Business Process for the detailed operational steps behind a stage.
+- `archimate:workpackage` — A unit of work with a clear goal, start and end, such as a project, a programme or a sprint. Use it for planned change; use Business Process for repeating operational work, and Deliverable for what it produces.
 
 **Relationship types**
 
-- `archimate:access` — Access
-- `archimate:aggregation` — Aggregation
-- `archimate:assignment` — Assignment
-- `archimate:association` — Association
-- `archimate:composition` — Composition
-- `archimate:flow` — Flow
-- `archimate:influence` — Influence
-- `archimate:realization` — Realization
-- `archimate:serving` — Serving
-- `archimate:specialization` — Specialization
-- `archimate:triggering` — Triggering
-- `archimate:uses` — Uses
+- `archimate:access` — Behaviour or an active element reads, writes or otherwise uses a passive object; the source is the actor, the target the data. Use it for data use; use Serving between behaviours, and Flow for data passed between behaviours.
+- `archimate:aggregation` — The source groups the target, which can exist independently and may belong to several wholes; source is the whole. Use it for loose membership; use Composition when the part lives and dies with the whole.
+- `archimate:assignment` — Who or what performs or carries the target: an actor to a role, a role to a process, a component to a function, a node to an artifact. Use it for performs or hosts; use Realization for implements.
+- `archimate:association` — An unspecified relationship between two elements, optionally directed, when no other relationship fits. Use it sparingly and name it; prefer a typed relationship when the meaning is known.
+- `archimate:composition` — The target is an integral part of the source and cannot exist without it; source is the whole, target the part. Use it for strong ownership, such as an application and its modules; use Aggregation when the part can stand alone or belong to several wholes.  *(containment: the **parent** is the source)*
+- `archimate:flow` — Something is transferred from the source behaviour to the target, such as information, money or goods. Use it for what moves between behaviours; use Triggering when only the order of execution matters.
+- `archimate:influence` — The source affects the target positively or negatively without a strict dependency, mostly between motivation elements. Use it for contributes to or hurts, such as a requirement supporting a goal; use Realization when the source fully achieves the target.
+- `archimate:realization` — The source makes the target concrete or real: a process realises a service, a component realises a data object, an artifact realises a component. Use it for implements; use Assignment for performs.
+- `archimate:serving` — The source provides its functionality to the target; the arrow points to the one being served, such as a service to a process or a role. Use it for offers to; use Access when behaviour reads or writes passive data.
+- `archimate:specialization` — The source is a particular kind of the target, and inherits its meaning, such as Car Insurance being a kind of Insurance Product. Use it between elements of the same type only.
+- `archimate:triggering` — The source causes the target to start: one behaviour or event follows another in time. Use it for sequence and causality; use Flow when something such as information or goods is passed along.
+- `archimate:uses` — Not an ArchiMate 3 relationship: a local type kept for repositories that state a dependency in the user’s direction. The source depends on the target. Prefer Serving, with the arrow towards the one served, in new ArchiMate models.
 
 ### c4
 
 **Element types**
 
-- `c4:application` — Application
-- `c4:capability` — Capability
-- `c4:component` — Component
-- `c4:container` — Container
-- `c4:domain` — Domain
-- `c4:externalsystem` — External System
-- `c4:person` — Person
-- `c4:softwaresystem` — Software System
+- `c4:application` — An application as the business knows it, supporting a Capability. It bridges the business view and the C4 view: it contains the Containers that implement it.
+- `c4:capability` — Something the business is able to do, such as Order Management, independent of how it is done. It sits inside a Domain and contains the Applications that support it.
+- `c4:component` — A grouping of related code behind a clear interface inside one Container, such as a controller or a module. It is not deployed on its own; if it is, it is a Container.
+- `c4:container` — A separately deployable or runnable unit inside a Software System: a web app, an API, a database, a mobile app. It holds Components. It means a Docker container only when that is what it is.
+- `c4:domain` — A business domain that groups related capabilities, such as Sales or Logistics. Use it as the top of the business view; it contains Capabilities.
+- `c4:externalsystem` — A software system outside your scope that you depend on or that depends on you: a partner API, a SaaS, another team. Use it rather than Software System when you neither own it nor describe its inside.
+- `c4:person` — A human user of the system, or a role that people play. Draw one when who acts matters; for a machine that calls you, use External System.
+- `c4:softwaresystem` — The top zoom level: something that delivers value to its users and is owned by one team. Use it for your own systems in a context view; open it into Containers to show how it is built.
 
 **Relationship types**
 
-- `c4:dependson` — Depends On
-- `c4:holds` — Holds  *(containment: the **parent** is the source)*
-- `c4:includes` — Includes
-- `c4:sendsto` — Sends To
-- `c4:uses` — Uses
+- `c4:association` — A plain link between two elements, with no direction and no stated meaning. Use it only when none of the more specific types fits.
+- `c4:dependson` — The source needs the target to build or to work, without calling it at run time: a library, a shared schema, a prerequisite. Use Uses for run-time calls.
+- `c4:includes` — The source contains or bundles the target as one of its parts. Use it for a part-of relation you want drawn as a line rather than as nesting.
+- `c4:realization` — The source implements or makes real the target, such as an application realizing a capability. Use it to tie a technical element to the business concept it delivers.
+- `c4:sendsto` — The source sends messages or events to the target, usually asynchronously through a queue or topic. Use Uses instead for a request that waits for an answer.
+- `c4:uses` — The source calls or relies on the target at run time, usually waiting for an answer. Name the protocol or purpose in the label; use Sends To for asynchronous messages.
 
 **Attributes**
 
@@ -167,42 +168,123 @@ that does not exist.
 
 **Element types**
 
-- `core:database` — Database
-- `core:external` — External
-- `core:group` — Group
-- `core:person` — Person
-- `core:queue` — Queue
-- `core:service` — Service
-- `core:system` — System
-- `core:ui` — UI
+- `core:database` — A store of persistent data: a relational database, a document store, a file share used as one. Use it rather than Service when holding data is the job.
+- `core:external` — Anything outside your scope that you interact with: a partner, a SaaS, a public API. Use it rather than System when you neither own it nor describe its inside.
+- `core:group` — A named set of elements with no meaning of its own, such as a team, a zone or a release. Use it to gather things when no other type says why they belong together.
+- `core:person` — A human, or a role people play, that interacts with the systems. Use it for users, operators and anyone whose part in the picture matters.
+- `core:queue` — A channel that carries messages from producers to consumers: a queue, a topic, an event bus. Use it to show asynchronous communication explicitly instead of a direct link.
+- `core:service` — A running piece of software that offers functionality to others, such as an API or a backend process. Use it for a part of a System; use Database or Queue when its job is to store or carry data.
+- `core:system` — A software system at the coarsest grain: something with its own owner and purpose. Use it when its inside does not matter; split it into Services, Databases and UIs when it does.
+- `core:ui` — A user interface: a web front end, a mobile app, a desktop client. Use it for the part people touch, kept apart from the Services behind it.
 
 **Relationship types**
 
-- `core:dependson` — Depends On
-- `core:holds` — Holds  *(containment: the **parent** is the source)*
-- `core:sendsto` — Sends To
-- `core:uses` — Uses
+- `core:access` — The source reads or writes the data held by the target. Use it from a system or behaviour to a Database or other store, not between two active elements.
+- `core:aggregation` — The source groups the target, which can exist on its own and belong to other groups too. Use it rather than Composition when the part outlives the whole or is shared.
+- `core:assignment` — The source is responsible for, or performs, the target: an actor assigned to a role, a system to a function. Use it to say who or what does the work.
+- `core:composition` — The source is a whole and the target one of its parts, which cannot exist without it. This is the containment type of this profile: the target is nested in the source and has one parent only.  *(containment: the **parent** is the source)*
+- `core:influence` — The source affects the target without a hard dependency, such as a driver influencing a goal. Use it for motivation and other soft effects.
+- `core:realization` — The source implements the target: the concrete realizes the abstract, such as a service realizing a requirement. Use it to link an implementation to what it fulfils.
+- `core:serving` — The source provides its functionality to the target. Draw it from provider to consumer; Uses says the same from the consumer side.
+- `core:triggering` — The source causes the target to start, one after the other in time. Use it for sequence and causality between behaviours; use Uses or Serving for dependency.
+- `core:uses` — The source relies on the target to do its job. Draw it from consumer to provider; Serving says the same from the provider side.
 
 ### data
 
 **Element types**
 
-- `data:entity` — Entity
-- `data:model` — Data Model
+- `data:entity` — One kind of thing whose data is stored, such as Customer or Order, with its attributes. It lives inside a Data Model; link entities to each other with Relation.
+- `data:model` — A data model: a named set of Entities that belong together, such as the schema of one application or domain. Use it as the frame, and put what is stored inside it as Entities.
 
 **Relationship types**
 
-- `data:relation` — Relation
+- `data:association` — A loose link with no direction, such as a data model associated with a business concept. Use Relation between Entities, and Uses for a system that reads or writes the data.
+- `data:relation` — A link between two Entities, such as a foreign key or a one-to-many reference. Draw it from the referencing entity to the one it refers to.
+- `data:uses` — The source uses the data in the target, such as an application using a data model. Use it to connect the data view to the systems that read or write it.
 
-**Attributes**
+### infra
 
-- `cardinality` (string)
+**Element types**
+
+- `infra:apigateway` — A managed entry point for APIs: routing, authentication, throttling. Use it rather than Gateway when the entry point manages APIs as a product, with keys, quotas and versions.
+- `infra:browser` — A web browser, or a browser window an application opens. Use it for the client side of a web flow; use Workstation for the machine it runs on.
+- `infra:cache` — An in-memory cache in front of a slower store. Use it rather than Database when the data can be rebuilt and is kept only for speed.
+- `infra:cdn` — A content delivery network distribution in front of an origin. Use it for edge caching of public content; the origin behind it is often Static Hosting or a Gateway.
+- `infra:ci` — A build or deploy job: a CI workflow, or a script a person runs by hand. Draw Deploys to what it creates or starts and Pushes to where it uploads.
+- `infra:cloud` — A cloud provider account. Use it as the outermost frame for what one account or subscription holds; put Regions inside it.
+- `infra:container` — An OCI image, or the container made from it when shown as one thing. Use the Runtime frame instead when you need to draw what runs inside the container.
+- `infra:database` — A managed or self-run database. Use Cache for an in-memory store and Object Storage for files and blobs.
+- `infra:dns` — A DNS zone or resolver. Draw it when name resolution is part of the story, such as a domain pointing at a CDN.
+- `infra:email` — A mailbox, or a service that sends mail. Use it where mail is part of a flow, such as sign-up confirmations or alerts.
+- `infra:file` — A file that matters to the architecture: a script, a configuration, a licence. Use it when one file deserves a place on the diagram; use Git Repository for a whole set of files.
+- `infra:firewall` — A network firewall, web application firewall or security group filtering traffic. Draw it in the path of a flow where traffic is filtered, such as between the internet and a network.
+- `infra:gateway` — A reverse proxy or ingress in front of a service. Use it to route traffic to one or a few backends by host or path. Use Load Balancer to spread the same traffic over many copies, and API Gateway for a managed API front door.
+- `infra:gitrepo` — A git repository, a working copy or a remote. Use it for where code or content lives; pipelines read from it and pushes reach it.
+- `infra:host` — A machine that runs things: a laptop, a workstation, a server. Use this frame rather than the Server icon when you draw what runs on the machine, such as Runtimes and Services.
+- `infra:identity` — Sign-in, user directories, SSO. Use it for the identity provider users authenticate against, such as an OIDC provider or a corporate directory.
+- `infra:internet` — The public internet, where it matters to show it. Draw it between users and your public entry point, such as a CDN or a gateway.
+- `infra:keymanagement` — Cryptographic keys and the service that holds or signs with them. Use it for a KMS or HSM; plain passwords and tokens belong in Secret Store.
+- `infra:kubernetes` — A container orchestration cluster, or one namespace of it. Put Containers, Services and Gateways inside it; it sits in a Network or a Region.
+- `infra:loadbalancer` — Spreads incoming traffic across several targets — the natural source of a fan-out. Use it when many copies serve the same traffic; use Gateway to route to different backends.
+- `infra:monitoring` — Logs, metrics, alerts. Use it for where telemetry goes and who gets alerted; draw Flow to it from what it watches.
+- `infra:network` — A network or subnet. Use it to show what shares an address space, in a Region or on premises; nest one in another for subnets.
+- `infra:objectstorage` — A bucket of objects. Use it for files and blobs addressed by key; use Database for queried records, Static Hosting when the bucket serves a site.
+- `infra:payment` — A payment provider. Use it for the external service that takes card or bank payments.
+- `infra:person` — A human: a visitor, a customer, an operator, an architect. Draw it as the start of a flow, such as who browses the site.
+- `infra:queue` — A message queue, topic or event bus between producers and consumers. Use it for an asynchronous hand-off; a synchronous call is a Flow straight to the service.
+- `infra:region` — A cloud region. Use it for a geographic location inside a Cloud; put Networks and managed services inside it.
+- `infra:registry` — Where container images are stored and pulled from. Pipelines push images to it; runtimes and clusters read them from it.
+- `infra:runtime` — A process environment: a container runtime, or one container and what runs inside it. Use it inside a Host to show what a process or container holds; runtimes can nest.
+- `infra:secretstore` — Where secrets and credentials are kept. Use it for passwords, tokens and API keys; use Key Management for keys that sign or encrypt.
+- `infra:server` — A virtual or physical machine. Use this icon when the machine is a leaf of the drawing; use the Host frame to draw what runs on it.
+- `infra:service` — A running process or application service. Use it for your own code running somewhere; managed offerings such as Database or Queue have their own types.
+- `infra:statichosting` — Static files served over HTTP: a generated site, a web root. Use it when files are served as they are, with no code running per request; otherwise use Service.
+- `infra:trustboundary` — Who owns and controls what is inside: an organisation, a vendor. Use it to show where control changes hands, around anything a third party runs.
+- `infra:vpn` — A VPN, private link or peering connection between networks. Draw it between the networks or sites it joins.
+- `infra:workstation` — A person's own computer. Use it for a developer or operator laptop; use the Host frame when you draw what runs on it.
+
+**Relationship types**
+
+- `infra:deploys` — The source creates or runs the target. Use it from a pipeline or a person to what it creates or starts, never for traffic.
+- `infra:flow` — Traffic or data moving from source to target. Use it for requests, responses and data in motion, drawn in the direction the traffic goes.
+- `infra:hosts` — The source frame holds the target: a region holds a bucket, a host holds a runtime. It is placement, not traffic: the target is drawn inside the source, and each element has one host.  *(containment: the **parent** is the source)*
+- `infra:pushes` — The source uploads or publishes to the target. Use it for a pipeline pushing to a registry, a repository or a bucket.
+- `infra:reads` — The source reads from the target. Use it for pulling images, cloning a repository or reading configuration, drawn from reader to source.
+- `infra:signs` — The source has the target sign something. Use it from what needs a signature to the Key Management that holds the key.
 
 ## Data points declared here
 
 Values an element may carry. Use the declared values exactly; anything else is a warning.
 
+- `Availability-Achieved` (list) — `010 Low`, `020 Medium`, `030 High`
+- `Availability-Requirement` (list) — `010 Low`, `020 Medium`, `030 High`
+- `Business-Criticality` (list) — `010 Administrative`, `020 Operational`, `030 Business critical`, `040 Mission critical`
+- `Business-Owner` (string)
+- `Change-Cost` (number)
+- `Data-Classification` (list) — `010 Public`, `020 Internal`, `030 Confidential`, `040 Restricted`
+- `Department` (group) — several allowed: `Department "a", "b"`
+- `end-date` (date)
+- `end-of-life` (date)
+- `end-of-support` (date)
+- `Functional-Fit` (list) — `010 Unreasonable`, `020 Insufficient`, `030 Appropriate`, `040 Perfect`
+- `Hosting` (list) — `010 On premise`, `020 Private cloud`, `030 Hybrid`, `040 Public cloud`, `050 SaaS`
+- `initiative-duration` (duration) — `1d`, `3d`, `1w`, `2w`, `3w`, `1m`, `2m`, `1q`, `2q`, `1s`, `1y`, `2y`, `5y`
+- `IT-Owner` (string)
 - `lifecycle` (lifecycle)
+- `milestone` (date)
+- `Personal-Data` (list) — `010 None`, `020 Personal`, `030 Sensitive`
+- `project` (string)
+- `project-date` (date)
+- `RPA` (list) — `010 Week`, `020 Day`, `030 Minutes`
+- `RPO` (list) — `010 Week`, `020 Day`, `030 Minutes`
+- `RTA` (list) — `010 Week`, `020 Day`, `030 Minutes`
+- `RTO` (list) — `010 Week`, `020 Day`, `030 Minutes`
+- `Run-Cost` (number)
+- `Sourcing` (list) — `010 Built in-house`, `020 Open source`, `030 Package`, `040 SaaS`
+- `start-date` (date)
+- `Technical-Fit` (list) — `010 Inappropriate`, `020 Unreasonable`, `030 Adequate`, `040 Fully appropriate`
+- `TIME` (list) — `010 Eliminate`, `020 Migrate`, `030 Tolerate`, `040 Invest`
+- `Users` (number)
 
 ## Files you must not edit
 

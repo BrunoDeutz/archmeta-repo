@@ -1,0 +1,19 @@
+data-point Hosting {
+  description "Where it runs"
+  hierarchy "Sourcing"
+  type list
+  value "010 On premise"
+  value "020 Private cloud"
+  value "030 Hybrid"
+  value "040 Public cloud"
+  value "050 SaaS"
+}
+data-point Sourcing {
+  description "Where it comes from"
+  hierarchy "Sourcing"
+  type list
+  value "010 Built in-house"
+  value "020 Open source"
+  value "030 Package"
+  value "040 SaaS"
+}

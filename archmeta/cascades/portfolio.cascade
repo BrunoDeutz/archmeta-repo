@@ -1,0 +1,7 @@
+cascade Business-Criticality {
+  description "The criticality of the business, carried down to what it relies on: the highest wins"
+  layers availability-down
+  reads Business-Criticality
+  writes Business-Criticality-from
+  merge keep-highest
+}

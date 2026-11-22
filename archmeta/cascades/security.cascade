@@ -1,0 +1,7 @@
+cascade Data-Classification {
+  description "The classification of the data, carried down to what stores it: the most restricted wins"
+  layers availability-down
+  reads Data-Classification
+  writes Data-Classification-from
+  merge keep-highest
+}
