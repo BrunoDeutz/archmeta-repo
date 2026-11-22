@@ -1,0 +1,18 @@
+# Written by the Kernel, never by you. Tracking them turns each reload into a diff
+# nobody authored. The authored model is the source of truth; these are projections.
+archmeta/diagnostics/
+archmeta/journal/
+archmeta/archmeta.log
+archmeta/publish.log
+
+# The generated website, rebuilt from the model.
+website/
+website-debug/
+
+# NOT ignored, on purpose: archmeta/ai-vocabulary.md. It tells an AI assistant which
+# element types, relationship types and data points this repository allows, generated
+# from the metamodels. Committed, an assistant in a fresh clone has it before the
+# Kernel has ever run; the Kernel rewrites it only when the vocabulary changes.
+
+.DS_Store
+*.swp

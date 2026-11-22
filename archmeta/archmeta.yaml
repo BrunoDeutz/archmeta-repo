@@ -1,0 +1,33 @@
+# ArchMeta configuration for this repository.
+#
+# Where things are (three folders at the root):
+#   archmeta/   the tool's side
+#     metamodels/      c4, archimate, core, data (+ icon SVGs) — the types you may use
+#     data-points/     the values an element or a relationship can carry
+#     cascades/        values computed along a layer set
+#     filters/         lenses that colour or select what a view shows
+#     layers/          the order of types a cascade or a report follows
+#     diagnostics/, journal/, ai-vocabulary.md — written by the Kernel
+#   model/      the content
+#     elements/        .arch and .data files — auto-discovered anywhere under the root
+#     views/           saved diagrams, written by the Viewer
+#     processes/, sequences/, descriptions/, projects/
+#     site/site.toc    the outline of the published site
+#   website/    the generated site, never edited by hand
+#
+# `.metamodel` files are discovered only directly inside the metamodels root
+# (archmeta/metamodels in this layout). Point elsewhere with an explicit root:
+#
+# metamodels:
+#   root: architecture/metamodels
+#
+# Lazy-loading index endpoints (GET /api/index/<type>). Add the element
+# types you want the Viewer / website to paginate over. Entries may be
+# unprefixed (`application`) or namespaced (`c4:container`).
+#
+# indexes:
+#   - c4:application
+#   - c4:container
+#   - c4:component
+#   - archimate:businessservice
+#   - person

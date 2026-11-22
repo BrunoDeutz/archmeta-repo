@@ -1,0 +1,65 @@
+metamodel core {
+  // Universal default element types (per CLAUDE.md §4.1, §4.13).
+  elementType person {
+    displayName "Person"
+    shape "person"
+  }
+  elementType system {
+    displayName "System"
+    shape "rectangle"
+  }
+  elementType service {
+    displayName "Service"
+    shape "rectangle"
+  }
+  elementType database {
+    displayName "Database"
+    shape "cylinder"
+  }
+  elementType queue {
+    displayName "Queue"
+    shape "rectangle"
+  }
+  elementType ui {
+    displayName "UI"
+    shape "rectangle"
+  }
+  elementType external {
+    displayName "External"
+    shape "cloud"
+  }
+  elementType group {
+    displayName "Group"
+    shape "rectangle"
+  }
+
+  // Relationship types. `uses`, `sendsto`, `dependson` and `holds` carry the
+  // same names as in c4, so a core element connects to a c4 one by name (a
+  // cross-metamodel pair is offered only the names both metamodels declare).
+  relationshipType uses {
+    displayName "Uses"
+    edgeStyle "solid"
+    arrow "open"
+    color "#999999"
+  }
+  relationshipType sendsto {
+    displayName "Sends To"
+    edgeStyle "solid"
+    arrow "filled"
+    color "#999999"
+  }
+  relationshipType dependson {
+    displayName "Depends On"
+    edgeStyle "dashed"
+    arrow "open"
+    color "#999999"
+  }
+  // Containment: the source holds the target, which is drawn nested inside it.
+  relationshipType holds {
+    displayName "Holds"
+    edgeStyle "solid"
+    sourceArrow "filled-diamond"
+    color "#999999"
+    parentChild "source"
+  }
+}

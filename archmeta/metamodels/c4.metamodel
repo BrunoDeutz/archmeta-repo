@@ -1,0 +1,98 @@
+metamodel c4 {
+  elementType person {
+    displayName "Person"
+    shape "person"
+    color "#08427B"
+    icon "person.svg"
+  }
+
+  elementType softwaresystem {
+    displayName "Software System"
+    shape "rectangle"
+    color "#1168BD"
+    icon "software-system.svg"
+  }
+
+  elementType container {
+    displayName "Container"
+    shape "rectangle"
+    color "#438DD5"
+    icon "container.svg"
+    contains component
+  }
+
+  elementType component {
+    displayName "Component"
+    shape "roundedrectangle"
+    color "#85BBF0"
+    icon "component.svg"
+  }
+
+  elementType externalsystem {
+    displayName "External System"
+    shape "rectangle"
+    color "#999999"
+    icon "external-system.svg"
+  }
+
+  elementType domain {
+    displayName "Domain"
+    shape "rectangle"
+    color "#1168BD"
+    contains capability
+  }
+
+  elementType capability {
+    displayName "Capability"
+    shape "rectangle"
+    color "#438DD5"
+    contains application
+  }
+
+  elementType application {
+    displayName "Application"
+    shape "rectangle"
+    color "#438DD5"
+    contains container
+  }
+
+  relationshipType uses {
+    displayName "Uses"
+    edgeStyle "solid"
+    arrow "open"
+    color "#999999"
+  }
+  relationshipType sendsto {
+    displayName "Sends To"
+    edgeStyle "solid"
+    arrow "filled"
+    color "#999999"
+  }
+  relationshipType dependson {
+    displayName "Depends On"
+    edgeStyle "dashed"
+    arrow "open"
+    color "#999999"
+  }
+  relationshipType includes {
+    displayName "Includes"
+    edgeStyle "solid"
+    arrow "diamond"
+    color "#999999"
+  }
+  // Containment: the source holds the target, which is drawn nested inside it.
+  // The only way an .arch element gets a parent — a dotted name nests nothing.
+  relationshipType holds {
+    displayName "Holds"
+    edgeStyle "solid"
+    sourceArrow "filled-diamond"
+    color "#999999"
+    parentChild "source"
+  }
+
+  attributeType technology {
+    valueType "string"
+    multivalued false
+    appliesTo container, component, application
+  }
+}

@@ -1,0 +1,27 @@
+metamodel data {
+  elementType model {
+    displayName "Data Model"
+    shape "rectangle"
+    color "#5A6473"
+    contains entity
+  }
+
+  elementType entity {
+    displayName "Entity"
+    shape "entity"
+    color "#2B6CB0"
+  }
+
+  relationshipType relation {
+    displayName "Relation"
+    edgeStyle "solid"
+    arrow "open"
+    color "#999999"
+  }
+
+  attributeType cardinality {
+    valueType "string"
+    multivalued false
+    appliesTo relation
+  }
+}

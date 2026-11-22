@@ -1,0 +1,21 @@
+// example.arch
+//
+// Created by `archmeta init`. One element, so there is something on screen and
+// something to copy — not a sample landscape you have to delete before your own
+// model can start.
+//
+// Hierarchy comes from a containment relationship — `type "c4:holds"` (or
+// `"core:holds"`) from the parent to the child — never from a dotted name or from
+// nesting `element` blocks inside one another.
+//
+// One element on its own has no relationships, so archmeta-report.md notes it as
+// an orphan. That is information, not a fault, and it goes away as soon as you
+// connect it to something.
+
+element OrdersApp {
+  type "c4:application"
+  displayName "Orders App"
+  description "Replace this with the first thing you want to describe."
+  description-file "./model/descriptions/orders-app.md"
+  status "live"
+}

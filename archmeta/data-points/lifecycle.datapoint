@@ -1,0 +1,7 @@
+// Set by a project: an element or relationship created in a project is
+// "future" until the project delivers; one a project retires is "deprecated".
+// The Kernel finds this data point by its type, never by its name.
+data-point lifecycle {
+  description "Lifecycle"
+  type lifecycle
+}
