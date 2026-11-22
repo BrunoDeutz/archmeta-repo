@@ -23,8 +23,7 @@ The repository starts with an empty model and everything needed to fill one:
 
 ## Start
 
-Run `./archmeta.sh` (macOS / Linux), `archmeta.command` (macOS, double-click) or `archmeta.ps1` (Windows), then open
-the Viewer.
+Open this folder with the ArchMeta app (macOS or Windows): it starts the Kernel on the folder and opens the Viewer.
 
 ## Working with an AI assistant
 
