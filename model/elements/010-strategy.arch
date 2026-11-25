@@ -32,4 +32,5 @@ element web-presence {
   type "archimate:capability"
   displayName "Web presence"
   description-file "web-presence.md"
+  view "web-presence"
 }
