@@ -1,0 +1,48 @@
+{
+  "displayName": "Product Engineering",
+  "hierarchies": [
+    "business"
+  ],
+  "elements": [
+    {
+      "id": "product-engineering",
+      "x": 982.4665714551578,
+      "y": 571.0916235677232
+    }
+  ],
+  "edges": [
+    {
+      "id": "rel:onboard-a-customer-access-customer",
+      "waypoints": [
+        {
+          "x": 890.6987368769014,
+          "y": 1251.8306358342995
+        },
+        {
+          "x": -71.2149631230979,
+          "y": 1251.8306358342995
+        }
+      ],
+      "sideVariant": 0
+    },
+    {
+      "id": "rel:licence-purchase-serving-customer-architect",
+      "waypoints": [
+        {
+          "x": 322.62793687690163,
+          "y": 7.345635834300509
+        },
+        {
+          "x": 1050.2856368769012,
+          "y": 158.1479358343004
+        }
+      ],
+      "sideVariant": 0
+    },
+    {
+      "id": "rel:onboard-a-customer-realization-software-delivery",
+      "waypoints": [],
+      "sideVariant": 0
+    }
+  ]
+}
