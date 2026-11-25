@@ -1,76 +1,16 @@
 displayName "Business"
 description "The services B9 offers and the processes that deliver them."
 
-element product-information {
-  type "archimate:businessservice"
-  displayName "Product information"
-  description-file "product-information.md"
-  data-points {
-    RTO "020 Day"
-  }
-}
-
-element software-delivery {
-  type "archimate:businessservice"
-  displayName "Software delivery"
-  description-file "software-delivery.md"
-  data-points {
-    RTO "020 Day"
-  }
-}
-
-element licence-delivery {
-  type "archimate:businessservice"
-  displayName "Licence delivery"
-  description-file "licence-delivery.md"
-  data-points {
-    RTO "020 Day"
-  }
-}
-
-element support {
-  type "archimate:businessservice"
-  displayName "Support"
-  description-file "support.md"
-  data-points {
-    RTO "030 Minutes"
-  }
-}
-
-element develop-a-feature {
+element answer-a-support-request {
   type "archimate:businessprocess"
-  displayName "Develop a feature"
-  description-file "develop-a-feature.md"
-}
-
-element describe-the-architecture {
-  type "archimate:businessprocess"
-  displayName "Describe the architecture"
-  description-file "describe-the-architecture.md"
-}
-
-element publish-the-website {
-  type "archimate:businessprocess"
-  displayName "Publish the website"
-  description-file "publish-the-website.md"
-}
-
-element release-a-version {
-  type "archimate:businessprocess"
-  displayName "Release a version"
-  description-file "release-a-version.md"
-  bpmn-file "release-a-version.bpmn"
-}
-
-element issue-a-licence-by-hand {
-  type "archimate:businessprocess"
-  displayName "Issue a licence by hand"
-  description-file "issue-a-licence-by-hand.md"
-  project customers-download-and-shop {
+  displayName "Answer a support request"
+  description-file "answer-a-support-request.md"
+  bpmn-file "answer-a-support-request.bpmn"
+  project support-automation {
     data-points {
       lifecycle "deprecated"
-      project "customers-download-and-shop"
-      project-date "2027-03-01"
+      project "support-automation"
+      project-date "2027-12-01"
     }
     was { }
   }
@@ -90,18 +30,79 @@ element deliver-a-build-by-mail {
   }
 }
 
-element answer-a-support-request {
+element describe-the-architecture {
   type "archimate:businessprocess"
-  displayName "Answer a support request"
-  description-file "answer-a-support-request.md"
-  bpmn-file "answer-a-support-request.bpmn"
-  project support-automation {
+  displayName "Describe the architecture"
+  description-file "describe-the-architecture.md"
+}
+
+element develop-a-feature {
+  type "archimate:businessprocess"
+  displayName "Develop a feature"
+  description-file "develop-a-feature.md"
+  view "product-engineering"
+}
+
+element issue-a-licence-by-hand {
+  type "archimate:businessprocess"
+  displayName "Issue a licence by hand"
+  description-file "issue-a-licence-by-hand.md"
+  project customers-download-and-shop {
     data-points {
       lifecycle "deprecated"
-      project "support-automation"
-      project-date "2027-12-01"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
     }
     was { }
+  }
+}
+
+element licence-delivery {
+  type "archimate:businessservice"
+  displayName "Licence delivery"
+  description-file "licence-delivery.md"
+  data-points {
+    RTO "020 Day"
+  }
+}
+
+element product-information {
+  type "archimate:businessservice"
+  displayName "Product information"
+  description-file "product-information.md"
+  data-points {
+    RTO "020 Day"
+  }
+}
+
+element publish-the-website {
+  type "archimate:businessprocess"
+  displayName "Publish the website"
+  description-file "publish-the-website.md"
+}
+
+element release-a-version {
+  type "archimate:businessprocess"
+  displayName "Release a version"
+  description-file "release-a-version.md"
+  bpmn-file "release-a-version.bpmn"
+}
+
+element software-delivery {
+  type "archimate:businessservice"
+  displayName "Software delivery"
+  description-file "software-delivery.md"
+  data-points {
+    RTO "020 Day"
+  }
+}
+
+element support {
+  type "archimate:businessservice"
+  displayName "Support"
+  description-file "support.md"
+  data-points {
+    RTO "030 Minutes"
   }
 }
 
@@ -232,6 +233,17 @@ project customers-download-and-shop {
     }
   }
 
+  element issue-the-invoice {
+    type "archimate:businessprocess"
+    displayName "Issue the invoice"
+    description-file "issue-the-invoice.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
   element licence-purchase {
     type "archimate:businessservice"
     displayName "Licence purchase"
@@ -261,17 +273,6 @@ project customers-download-and-shop {
     displayName "Sell a licence"
     description-file "sell-a-licence.md"
     bpmn-file "sell-a-licence.bpmn"
-    data-points {
-      lifecycle "future"
-      project "customers-download-and-shop"
-      project-date "2027-03-01"
-    }
-  }
-
-  element issue-the-invoice {
-    type "archimate:businessprocess"
-    displayName "Issue the invoice"
-    description-file "issue-the-invoice.md"
     data-points {
       lifecycle "future"
       project "customers-download-and-shop"
