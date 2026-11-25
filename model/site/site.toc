@@ -15,6 +15,18 @@
         {
           "type": "view",
           "viewId": "sales-and-licensing"
+        },
+        {
+          "type": "view",
+          "viewId": "web-presence"
+        },
+        {
+          "type": "view",
+          "viewId": "release-and-packaging"
+        },
+        {
+          "type": "view",
+          "viewId": "product-engineering"
         }
       ]
     }
