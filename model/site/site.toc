@@ -6,15 +6,15 @@
       "children": [
         {
           "type": "view",
+          "viewId": "archmeta-business-capability"
+        },
+        {
+          "type": "view",
           "viewId": "customer-support"
         },
         {
           "type": "view",
           "viewId": "sales-and-licensing"
-        },
-        {
-          "type": "view",
-          "viewId": "archmeta-business-capability"
         }
       ]
     }
