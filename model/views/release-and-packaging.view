@@ -1,0 +1,63 @@
+{
+  "displayName": "Release and Packaging",
+  "hierarchies": [
+    "business"
+  ],
+  "elements": [
+    {
+      "id": "release-and-packaging",
+      "x": 923.9665714551579,
+      "y": 464.8416235677232
+    },
+    {
+      "id": "release-a-version",
+      "x": 923.9665714551579,
+      "y": 613.8416235677232
+    },
+    {
+      "id": "release",
+      "x": 814.9665714551579,
+      "y": 783.8416235677232
+    },
+    {
+      "id": "b9-founder",
+      "x": 1035.966571455158,
+      "y": 783.8416235677232
+    }
+  ],
+  "edges": [
+    {
+      "id": "rel:onboard-a-customer-access-customer",
+      "waypoints": [
+        {
+          "x": 890.6987368769014,
+          "y": 1251.8306358342995
+        },
+        {
+          "x": -71.2149631230979,
+          "y": 1251.8306358342995
+        }
+      ],
+      "sideVariant": 0
+    },
+    {
+      "id": "rel:licence-purchase-serving-customer-architect",
+      "waypoints": [
+        {
+          "x": 322.62793687690163,
+          "y": 7.345635834300509
+        },
+        {
+          "x": 1050.2856368769012,
+          "y": 158.1479358343004
+        }
+      ],
+      "sideVariant": 0
+    },
+    {
+      "id": "rel:onboard-a-customer-realization-software-delivery",
+      "waypoints": [],
+      "sideVariant": 0
+    }
+  ]
+}
