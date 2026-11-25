@@ -1,0 +1,71 @@
+{
+  "displayName": "Customer Support",
+  "description": "the business element supporting the customer support business capability",
+  "hierarchies": [
+    "business"
+  ],
+  "elements": [
+    {
+      "id": "customer-support",
+      "x": 590.1863930000001,
+      "y": -18.341417000000035
+    },
+    {
+      "id": "support",
+      "x": 590,
+      "y": 123.5
+    },
+    {
+      "id": "customer-architect",
+      "x": 245,
+      "y": 392.5
+    },
+    {
+      "id": "answer-a-support-request",
+      "x": 908.3045454545454,
+      "y": 402.74090909090904
+    },
+    {
+      "id": "answer-a-support-request-at-once",
+      "x": 607,
+      "y": 394.5
+    },
+    {
+      "id": "support-request",
+      "x": 697.1084920000001,
+      "y": 566.7326255454545
+    },
+    {
+      "id": "issue-a-licence-by-hand",
+      "x": 1189.4499999999998,
+      "y": 645.26
+    },
+    {
+      "id": "deliver-a-build-by-mail",
+      "x": 847.4699999999998,
+      "y": 835.0100000000001
+    },
+    {
+      "id": "software-delivery",
+      "x": 451.7317580000001,
+      "y": 661.9086789999998
+    },
+    {
+      "id": "b9-founder",
+      "x": 908.33,
+      "y": 632.5299999999999
+    }
+  ],
+  "edges": [
+    {
+      "id": "rel:answer-a-support-request-access-support-request",
+      "waypoints": [],
+      "sideVariant": 1
+    },
+    {
+      "id": "rel:deliver-a-build-by-mail-realization-software-delivery",
+      "waypoints": [],
+      "sideVariant": 1
+    }
+  ]
+}
