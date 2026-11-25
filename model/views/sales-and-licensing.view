@@ -1,0 +1,119 @@
+{
+  "displayName": "Sales and Licensing",
+  "description": "the business description of sales and licencing",
+  "hierarchies": [
+    "business"
+  ],
+  "elements": [
+    {
+      "id": "sales-and-licensing",
+      "x": 444.82309999999995,
+      "y": 151.5718
+    },
+    {
+      "id": "licence-delivery",
+      "x": 445.40651000000025,
+      "y": 372.64867000000015
+    },
+    {
+      "id": "licence-purchase",
+      "x": 144.24114000000043,
+      "y": 369.1769800000002
+    },
+    {
+      "id": "software-delivery",
+      "x": 708.2124600000003,
+      "y": 366.75012000000027
+    },
+    {
+      "id": "customer-architect",
+      "x": 979.9950783294004,
+      "y": 231.85327393520072
+    },
+    {
+      "id": "deliver-a-build-by-mail",
+      "x": 708.5028783294005,
+      "y": 639.4786739352011
+    },
+    {
+      "id": "onboard-a-customer",
+      "x": 981.2166483294002,
+      "y": 1087.1583039352004
+    },
+    {
+      "id": "issue-the-invoice",
+      "x": -322.2235216705991,
+      "y": 600.1165739352004
+    },
+    {
+      "id": "sell-a-licence",
+      "x": 289.1365783294002,
+      "y": 640.4214739352003
+    },
+    {
+      "id": "issue-a-licence-by-hand",
+      "x": 491.8160783294003,
+      "y": 801.3038739352005
+    },
+    {
+      "id": "b9-founder",
+      "x": 703.2801783294004,
+      "y": 922.0499739352007
+    },
+    {
+      "id": "licence",
+      "x": 312.3654783294005,
+      "y": 1038.4880739352004
+    },
+    {
+      "id": "invoice",
+      "x": -44.87492167059918,
+      "y": 645.5879739352002
+    },
+    {
+      "id": "order",
+      "x": -43.84782167059956,
+      "y": 867.4412739352001
+    },
+    {
+      "id": "customer",
+      "x": -339.4976716705994,
+      "y": 976.1196439351999
+    }
+  ],
+  "edges": [
+    {
+      "id": "rel:onboard-a-customer-access-customer",
+      "waypoints": [
+        {
+          "x": 890.6987368769014,
+          "y": 1251.8306358342995
+        },
+        {
+          "x": -71.2149631230979,
+          "y": 1251.8306358342995
+        }
+      ],
+      "sideVariant": 0
+    },
+    {
+      "id": "rel:licence-purchase-serving-customer-architect",
+      "waypoints": [
+        {
+          "x": 322.62793687690163,
+          "y": 7.345635834300509
+        },
+        {
+          "x": 1050.2856368769012,
+          "y": 158.1479358343004
+        }
+      ],
+      "sideVariant": 0
+    },
+    {
+      "id": "rel:onboard-a-customer-realization-software-delivery",
+      "waypoints": [],
+      "sideVariant": 0
+    }
+  ]
+}
