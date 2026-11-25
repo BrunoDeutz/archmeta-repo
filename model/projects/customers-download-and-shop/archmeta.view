@@ -37,5 +37,17 @@
       "height": 787.293251
     }
   ],
-  "project": "customers-download-and-shop"
+  "project": "customers-download-and-shop",
+  "processes": [
+    {
+      "element": "archmeta",
+      "sequence": "first-start-of-archmeta",
+      "x": -116.32991100000004,
+      "y": 752.29035,
+      "width": 798,
+      "height": 408,
+      "folded": false,
+      "expanded": false
+    }
+  ]
 }
