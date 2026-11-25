@@ -40,7 +40,6 @@ element develop-a-feature {
   type "archimate:businessprocess"
   displayName "Develop a feature"
   description-file "develop-a-feature.md"
-  view "product-engineering"
 }
 
 element issue-a-licence-by-hand {
