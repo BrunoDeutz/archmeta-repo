@@ -1,0 +1,9 @@
+project customers-download-and-shop {
+  displayName "Customers, download and shop"
+  description-file "model/projects/customers-download-and-shop/customers-download-and-shop.md"
+  created "2026-11-25"
+  updated "2026-11-25"
+  decided "2026-11-25"
+  delivery "2027-03-01"
+  files "model/descriptions/customer-account.md", "model/descriptions/licence-purchase.md", "model/descriptions/onboard-a-customer.md", "model/descriptions/sell-a-licence.md", "model/descriptions/issue-the-invoice.md", "model/descriptions/customer.md", "model/descriptions/order.md", "model/descriptions/invoice.md", "model/descriptions/account-and-sign-in.md", "model/descriptions/software-download.md", "model/descriptions/checkout.md", "model/descriptions/invoicing.md", "model/descriptions/customer-record.md", "model/descriptions/order-record.md", "model/descriptions/invoice-record.md", "model/descriptions/account-page.md", "model/descriptions/download-page.md", "model/descriptions/licence-store.md", "model/descriptions/download-store.md", "model/descriptions/shop.md", "model/descriptions/checkout-page.md", "model/descriptions/order-service.md", "model/descriptions/order-store.md", "model/descriptions/payment-provider.md", "model/descriptions/identity.md", "model/descriptions/function-runtime.md", "model/descriptions/database.md", "model/descriptions/object-storage.md", "model/descriptions/website-data-customer-account.md", "model/descriptions/website-data-order.md", "model/descriptions/website-data-invoice.md", "model/descriptions/website-data-release.md", "model/processes/onboard-a-customer.bpmn", "model/processes/sell-a-licence.bpmn", "model/sequences/customer-creation-on-the-web.sequence", "model/sequences/from-checkout-to-licence.sequence"
+}

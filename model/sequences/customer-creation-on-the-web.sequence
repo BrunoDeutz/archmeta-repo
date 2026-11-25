@@ -1,0 +1,22 @@
+sequence customer-creation-on-the-web {
+  displayName "Customer creation on the web"
+  participant visitor
+  participant account-page
+  participant email-service
+
+  message visitor -> account-page {
+    displayName "Fills the form: address, password, company or private, country"
+  }
+  message account-page -> account-page {
+    displayName "Creates the account, not yet confirmed"
+  }
+  message account-page -> email-service {
+    displayName "Sends a code to the address"
+  }
+  message visitor -> account-page {
+    displayName "Types the code"
+  }
+  message account-page -> account-page {
+    displayName "Confirms the account and opens the download"
+  }
+}

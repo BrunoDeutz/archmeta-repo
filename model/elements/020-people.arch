@@ -1,0 +1,163 @@
+displayName "People"
+description "The people the architecture is about, defined once and used at every level."
+
+element visitor {
+  type "archimate:businessactor"
+  displayName "Visitor"
+  description-file "visitor.md"
+}
+
+element customer-architect {
+  type "archimate:businessactor"
+  displayName "Customer architect"
+  description-file "customer-architect.md"
+}
+
+element b9-founder {
+  type "archimate:businessactor"
+  displayName "B9 founder"
+  description-file "b9-founder.md"
+}
+
+relationship b9-founder-assignment-develop-a-feature {
+  source b9-founder
+  target develop-a-feature
+  type "archimate:assignment"
+}
+
+relationship b9-founder-assignment-describe-the-architecture {
+  source b9-founder
+  target describe-the-architecture
+  type "archimate:assignment"
+}
+
+relationship b9-founder-assignment-publish-the-website {
+  source b9-founder
+  target publish-the-website
+  type "archimate:assignment"
+}
+
+relationship b9-founder-assignment-release-a-version {
+  source b9-founder
+  target release-a-version
+  type "archimate:assignment"
+}
+
+relationship b9-founder-assignment-issue-a-licence-by-hand {
+  source b9-founder
+  target issue-a-licence-by-hand
+  type "archimate:assignment"
+}
+
+relationship b9-founder-assignment-deliver-a-build-by-mail {
+  source b9-founder
+  target deliver-a-build-by-mail
+  type "archimate:assignment"
+}
+
+relationship b9-founder-assignment-answer-a-support-request {
+  source b9-founder
+  target answer-a-support-request
+  type "archimate:assignment"
+}
+
+relationship visitor-uses-public-website {
+  source visitor
+  target public-website
+  type "c4:uses"
+}
+
+relationship customer-architect-uses-archmeta {
+  source customer-architect
+  target archmeta
+  type "c4:uses"
+}
+
+relationship b9-founder-uses-archmeta {
+  source b9-founder
+  target archmeta
+  type "c4:uses"
+}
+
+relationship b9-founder-uses-licensing {
+  source b9-founder
+  target licensing
+  type "c4:uses"
+}
+
+relationship b9-founder-uses-build-pipeline {
+  source b9-founder
+  target build-pipeline
+  type "c4:uses"
+}
+
+relationship customer-architect-uses-desktop-launcher {
+  source customer-architect
+  target desktop-launcher
+  type "c4:uses"
+}
+
+relationship customer-architect-uses-viewer {
+  source customer-architect
+  target viewer
+  type "c4:uses"
+}
+
+project customers-download-and-shop {
+  relationship customer-architect-uses-account-page {
+    source customer-architect
+    target account-page
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship customer-architect-uses-checkout-page {
+    source customer-architect
+    target checkout-page
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship visitor-uses-account-page {
+    source visitor
+    target account-page
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+}
+
+project support-automation {
+  relationship customer-architect-uses-faq {
+    source customer-architect
+    target faq
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+
+  relationship customer-architect-uses-support-agent {
+    source customer-architect
+    target support-agent
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+}

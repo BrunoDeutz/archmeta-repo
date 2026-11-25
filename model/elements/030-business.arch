@@ -1,0 +1,460 @@
+displayName "Business"
+description "The services B9 offers and the processes that deliver them."
+
+element product-information {
+  type "archimate:businessservice"
+  displayName "Product information"
+  description-file "product-information.md"
+  data-points {
+    RTO "020 Day"
+  }
+}
+
+element software-delivery {
+  type "archimate:businessservice"
+  displayName "Software delivery"
+  description-file "software-delivery.md"
+  data-points {
+    RTO "020 Day"
+  }
+}
+
+element licence-delivery {
+  type "archimate:businessservice"
+  displayName "Licence delivery"
+  description-file "licence-delivery.md"
+  data-points {
+    RTO "020 Day"
+  }
+}
+
+element support {
+  type "archimate:businessservice"
+  displayName "Support"
+  description-file "support.md"
+  data-points {
+    RTO "030 Minutes"
+  }
+}
+
+element develop-a-feature {
+  type "archimate:businessprocess"
+  displayName "Develop a feature"
+  description-file "develop-a-feature.md"
+}
+
+element describe-the-architecture {
+  type "archimate:businessprocess"
+  displayName "Describe the architecture"
+  description-file "describe-the-architecture.md"
+}
+
+element publish-the-website {
+  type "archimate:businessprocess"
+  displayName "Publish the website"
+  description-file "publish-the-website.md"
+}
+
+element release-a-version {
+  type "archimate:businessprocess"
+  displayName "Release a version"
+  description-file "release-a-version.md"
+  bpmn-file "release-a-version.bpmn"
+}
+
+element issue-a-licence-by-hand {
+  type "archimate:businessprocess"
+  displayName "Issue a licence by hand"
+  description-file "issue-a-licence-by-hand.md"
+  project customers-download-and-shop {
+    data-points {
+      lifecycle "deprecated"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+    was { }
+  }
+}
+
+element deliver-a-build-by-mail {
+  type "archimate:businessprocess"
+  displayName "Deliver a build by mail"
+  description-file "deliver-a-build-by-mail.md"
+  project customers-download-and-shop {
+    data-points {
+      lifecycle "deprecated"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+    was { }
+  }
+}
+
+element answer-a-support-request {
+  type "archimate:businessprocess"
+  displayName "Answer a support request"
+  description-file "answer-a-support-request.md"
+  bpmn-file "answer-a-support-request.bpmn"
+  project support-automation {
+    data-points {
+      lifecycle "deprecated"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+    was { }
+  }
+}
+
+relationship develop-a-feature-realization-product-engineering {
+  source develop-a-feature
+  target product-engineering
+  type "archimate:realization"
+}
+
+relationship describe-the-architecture-realization-product-engineering {
+  source describe-the-architecture
+  target product-engineering
+  type "archimate:realization"
+}
+
+relationship release-a-version-realization-release-and-packaging {
+  source release-a-version
+  target release-and-packaging
+  type "archimate:realization"
+}
+
+relationship product-information-realization-web-presence {
+  source product-information
+  target web-presence
+  type "archimate:realization"
+}
+
+relationship publish-the-website-realization-product-information {
+  source publish-the-website
+  target product-information
+  type "archimate:realization"
+}
+
+relationship licence-delivery-realization-sales-and-licensing {
+  source licence-delivery
+  target sales-and-licensing
+  type "archimate:realization"
+}
+
+relationship software-delivery-realization-sales-and-licensing {
+  source software-delivery
+  target sales-and-licensing
+  type "archimate:realization"
+}
+
+relationship issue-a-licence-by-hand-realization-licence-delivery {
+  source issue-a-licence-by-hand
+  target licence-delivery
+  type "archimate:realization"
+}
+
+relationship deliver-a-build-by-mail-realization-software-delivery {
+  source deliver-a-build-by-mail
+  target software-delivery
+  type "archimate:realization"
+}
+
+relationship support-realization-customer-support {
+  source support
+  target customer-support
+  type "archimate:realization"
+}
+
+relationship answer-a-support-request-realization-support {
+  source answer-a-support-request
+  target support
+  type "archimate:realization"
+}
+
+relationship product-information-serving-visitor {
+  source product-information
+  target visitor
+  type "archimate:serving"
+}
+
+relationship software-delivery-serving-customer-architect {
+  source software-delivery
+  target customer-architect
+  type "archimate:serving"
+}
+
+relationship licence-delivery-serving-customer-architect {
+  source licence-delivery
+  target customer-architect
+  type "archimate:serving"
+}
+
+relationship support-serving-customer-architect {
+  source support
+  target customer-architect
+  type "archimate:serving"
+}
+
+relationship issue-a-licence-by-hand-access-licence {
+  source issue-a-licence-by-hand
+  target licence
+  type "archimate:access"
+}
+
+relationship release-a-version-access-release {
+  source release-a-version
+  target release
+  type "archimate:access"
+}
+
+relationship answer-a-support-request-access-support-request {
+  source answer-a-support-request
+  target support-request
+  type "archimate:access"
+}
+
+relationship describe-the-architecture-access-repository {
+  source describe-the-architecture
+  target repository
+  type "archimate:access"
+}
+
+project customers-download-and-shop {
+  element customer-account {
+    type "archimate:businessservice"
+    displayName "Customer account"
+    description-file "customer-account.md"
+    data-points {
+      RTO "020 Day"
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element licence-purchase {
+    type "archimate:businessservice"
+    displayName "Licence purchase"
+    description-file "licence-purchase.md"
+    data-points {
+      RTO "030 Minutes"
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element onboard-a-customer {
+    type "archimate:businessprocess"
+    displayName "Onboard a customer"
+    description-file "onboard-a-customer.md"
+    bpmn-file "onboard-a-customer.bpmn"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element sell-a-licence {
+    type "archimate:businessprocess"
+    displayName "Sell a licence"
+    description-file "sell-a-licence.md"
+    bpmn-file "sell-a-licence.bpmn"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element issue-the-invoice {
+    type "archimate:businessprocess"
+    displayName "Issue the invoice"
+    description-file "issue-the-invoice.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship customer-account-realization-web-presence {
+    source customer-account
+    target web-presence
+    type "archimate:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship licence-purchase-realization-sales-and-licensing {
+    source licence-purchase
+    target sales-and-licensing
+    type "archimate:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship onboard-a-customer-realization-customer-account {
+    source onboard-a-customer
+    target customer-account
+    type "archimate:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship sell-a-licence-realization-licence-purchase {
+    source sell-a-licence
+    target licence-purchase
+    type "archimate:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship issue-the-invoice-realization-licence-purchase {
+    source issue-the-invoice
+    target licence-purchase
+    type "archimate:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship sell-a-licence-realization-licence-delivery {
+    source sell-a-licence
+    target licence-delivery
+    type "archimate:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship onboard-a-customer-realization-software-delivery {
+    source onboard-a-customer
+    target software-delivery
+    type "archimate:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship customer-account-serving-customer-architect {
+    source customer-account
+    target customer-architect
+    type "archimate:serving"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship licence-purchase-serving-customer-architect {
+    source licence-purchase
+    target customer-architect
+    type "archimate:serving"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship onboard-a-customer-access-customer {
+    source onboard-a-customer
+    target customer
+    type "archimate:access"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship sell-a-licence-access-order {
+    source sell-a-licence
+    target order
+    type "archimate:access"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship sell-a-licence-access-licence {
+    source sell-a-licence
+    target licence
+    type "archimate:access"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship issue-the-invoice-access-invoice {
+    source issue-the-invoice
+    target invoice
+    type "archimate:access"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+}
+
+project support-automation {
+  element answer-a-support-request-at-once {
+    type "archimate:businessprocess"
+    displayName "Answer a support request at once"
+    description-file "answer-a-support-request-at-once.md"
+    bpmn-file "answer-a-support-request-at-once.bpmn"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+
+  relationship answer-a-support-request-at-once-realization-support {
+    source answer-a-support-request-at-once
+    target support
+    type "archimate:realization"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+
+  relationship answer-a-support-request-at-once-access-support-request {
+    source answer-a-support-request-at-once
+    target support-request
+    type "archimate:access"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+}

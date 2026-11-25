@@ -1,0 +1,9 @@
+project client-server-with-an-identity-provider {
+  displayName "Client-server with an identity provider"
+  description-file "model/projects/client-server-with-an-identity-provider/client-server-with-an-identity-provider.md"
+  created "2026-11-25"
+  updated "2026-11-25"
+  decided "2026-11-25"
+  delivery "2027-09-01"
+  files "model/descriptions/shared-kernel.md", "model/descriptions/customer-s-identity-provider.md", "model/descriptions/team-server.md", "model/sequences/sign-in-through-the-identity-provider.sequence"
+}

@@ -1,0 +1,32 @@
+displayName "Strategy"
+description "The capabilities of B9 Solutions."
+
+element product-engineering {
+  type "archimate:capability"
+  displayName "Product engineering"
+  description-file "product-engineering.md"
+}
+
+element release-and-packaging {
+  type "archimate:capability"
+  displayName "Release and packaging"
+  description-file "release-and-packaging.md"
+}
+
+element web-presence {
+  type "archimate:capability"
+  displayName "Web presence"
+  description-file "web-presence.md"
+}
+
+element sales-and-licensing {
+  type "archimate:capability"
+  displayName "Sales and licensing"
+  description-file "sales-and-licensing.md"
+}
+
+element customer-support {
+  type "archimate:capability"
+  displayName "Customer support"
+  description-file "customer-support.md"
+}

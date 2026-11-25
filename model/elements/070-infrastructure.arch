@@ -1,0 +1,393 @@
+displayName "Infrastructure"
+description "What the software runs on."
+
+element cloud-account {
+  type "infra:cloud"
+  displayName "Cloud account"
+  description-file "cloud-account.md"
+}
+
+element dns {
+  type "infra:dns"
+  displayName "DNS"
+  description-file "dns.md"
+}
+
+element cdn {
+  type "infra:cdn"
+  displayName "CDN"
+  description-file "cdn.md"
+}
+
+element static-hosting {
+  type "infra:statichosting"
+  displayName "Static hosting"
+  description-file "static-hosting.md"
+  data-points {
+    RTA "030 Minutes"
+  }
+}
+
+element key-management {
+  type "infra:keymanagement"
+  displayName "Key management"
+  description-file "key-management.md"
+  data-points {
+    RTA "030 Minutes"
+  }
+}
+
+element git-hosting {
+  type "infra:gitrepo"
+  displayName "Git hosting"
+  description-file "git-hosting.md"
+  data-points {
+    RTA "030 Minutes"
+  }
+}
+
+element ci-runner {
+  type "infra:ci"
+  displayName "CI runner"
+  description-file "ci-runner.md"
+  data-points {
+    RTA "030 Minutes"
+  }
+}
+
+element founder-s-workstation {
+  type "infra:workstation"
+  displayName "Founder's workstation"
+  description-file "founder-s-workstation.md"
+  data-points {
+    RTA "020 Day"
+  }
+}
+
+element browser {
+  type "infra:browser"
+  displayName "Browser"
+  description-file "browser.md"
+  data-points {
+    RTA "030 Minutes"
+  }
+}
+
+element founder-s-mailbox {
+  type "infra:email"
+  displayName "Founder's mailbox"
+  description-file "founder-s-mailbox.md"
+  data-points {
+    RTA "020 Day"
+  }
+}
+
+relationship founder-s-workstation-realization-desktop-launcher {
+  source founder-s-workstation
+  target desktop-launcher
+  type "c4:realization"
+}
+
+relationship founder-s-workstation-realization-kernel {
+  source founder-s-workstation
+  target kernel
+  type "c4:realization"
+}
+
+relationship founder-s-workstation-realization-publisher {
+  source founder-s-workstation
+  target publisher
+  type "c4:realization"
+}
+
+relationship browser-realization-viewer {
+  source browser
+  target viewer
+  type "c4:realization"
+}
+
+relationship static-hosting-realization-public-site {
+  source static-hosting
+  target public-site
+  type "c4:realization"
+}
+
+relationship key-management-realization-licence-signer {
+  source key-management
+  target licence-signer
+  type "c4:realization"
+}
+
+relationship git-hosting-realization-source-repository {
+  source git-hosting
+  target source-repository
+  type "c4:realization"
+}
+
+relationship ci-runner-realization-build-job {
+  source ci-runner
+  target build-job
+  type "c4:realization"
+}
+
+relationship founder-s-mailbox-realization-email-service {
+  source founder-s-mailbox
+  target email-service
+  type "c4:realization"
+}
+
+relationship dns-flow-cdn {
+  source dns
+  target cdn
+  type "infra:flow"
+}
+
+relationship cdn-flow-static-hosting {
+  source cdn
+  target static-hosting
+  type "infra:flow"
+}
+
+relationship cloud-account-hosts-dns {
+  source cloud-account
+  target dns
+  type "infra:hosts"
+}
+
+relationship cloud-account-hosts-cdn {
+  source cloud-account
+  target cdn
+  type "infra:hosts"
+}
+
+relationship cloud-account-hosts-static-hosting {
+  source cloud-account
+  target static-hosting
+  type "infra:hosts"
+}
+
+relationship cloud-account-hosts-key-management {
+  source cloud-account
+  target key-management
+  type "infra:hosts"
+}
+
+project customers-download-and-shop {
+  element identity {
+    type "infra:identity"
+    displayName "Identity"
+    description-file "identity.md"
+    data-points {
+      RTA "030 Minutes"
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element function-runtime {
+    type "infra:runtime"
+    displayName "Function runtime"
+    description-file "function-runtime.md"
+    data-points {
+      RTA "030 Minutes"
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element database {
+    type "infra:database"
+    displayName "Database"
+    description-file "database.md"
+    data-points {
+      RTA "020 Day"
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element object-storage {
+    type "infra:objectstorage"
+    displayName "Object storage"
+    description-file "object-storage.md"
+    data-points {
+      RTA "030 Minutes"
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship identity-realization-account-page {
+    source identity
+    target account-page
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship static-hosting-realization-download-page {
+    source static-hosting
+    target download-page
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship static-hosting-realization-checkout-page {
+    source static-hosting
+    target checkout-page
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship function-runtime-realization-order-service {
+    source function-runtime
+    target order-service
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship database-realization-order-store {
+    source database
+    target order-store
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship database-realization-licence-store {
+    source database
+    target licence-store
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship object-storage-realization-download-store {
+    source object-storage
+    target download-store
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship cloud-account-hosts-identity {
+    source cloud-account
+    target identity
+    type "infra:hosts"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship cloud-account-hosts-function-runtime {
+    source cloud-account
+    target function-runtime
+    type "infra:hosts"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship cloud-account-hosts-database {
+    source cloud-account
+    target database
+    type "infra:hosts"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship cloud-account-hosts-object-storage {
+    source cloud-account
+    target object-storage
+    type "infra:hosts"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+}
+
+project client-server-with-an-identity-provider {
+  element team-server {
+    type "infra:server"
+    displayName "Team server"
+    description-file "team-server.md"
+    data-points {
+      RTA "020 Day"
+      lifecycle "future"
+      project "client-server-with-an-identity-provider"
+      project-date "2027-09-01"
+    }
+  }
+
+  relationship team-server-realization-shared-kernel {
+    source team-server
+    target shared-kernel
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "client-server-with-an-identity-provider"
+      project-date "2027-09-01"
+    }
+  }
+}
+
+project support-automation {
+  relationship static-hosting-realization-faq {
+    source static-hosting
+    target faq
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+
+  relationship function-runtime-realization-support-agent {
+    source function-runtime
+    target support-agent
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+}

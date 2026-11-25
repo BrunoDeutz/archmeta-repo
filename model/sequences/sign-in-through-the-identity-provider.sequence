@@ -1,0 +1,23 @@
+sequence sign-in-through-the-identity-provider {
+  displayName "Sign-in through the identity provider"
+  participant customer-architect
+  participant viewer
+  participant shared-kernel
+  participant customer-s-identity-provider
+
+  message customer-architect -> viewer {
+    displayName "Opens the Viewer's address"
+  }
+  message viewer -> shared-kernel {
+    displayName "Asks for the session"
+  }
+  message shared-kernel -> customer-s-identity-provider {
+    displayName "Sends the person to sign in"
+  }
+  message shared-kernel -> shared-kernel {
+    displayName "Reads who it is and the roles"
+  }
+  message viewer -> shared-kernel {
+    displayName "Loads the model"
+  }
+}

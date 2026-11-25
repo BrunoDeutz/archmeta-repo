@@ -1,0 +1,184 @@
+displayName "Business objects"
+description "What the business talks about: on the commercial side and inside ArchMeta."
+
+element licence {
+  type "archimate:businessobject"
+  displayName "Licence"
+  description-file "licence.md"
+}
+
+element release {
+  type "archimate:businessobject"
+  displayName "Release"
+  description-file "release.md"
+}
+
+element support-request {
+  type "archimate:businessobject"
+  displayName "Support request"
+  description-file "support-request.md"
+}
+
+element repository {
+  type "archimate:businessobject"
+  displayName "Repository"
+  description-file "repository.md"
+}
+
+element model-element {
+  type "archimate:businessobject"
+  displayName "Model element"
+  description-file "model-element.md"
+}
+
+element model-relationship {
+  type "archimate:businessobject"
+  displayName "Model relationship"
+  description-file "model-relationship.md"
+}
+
+element architecture-view {
+  type "archimate:businessobject"
+  displayName "Architecture view"
+  description-file "architecture-view.md"
+}
+
+element architecture-project {
+  type "archimate:businessobject"
+  displayName "Architecture project"
+  description-file "architecture-project.md"
+}
+
+relationship repository-association-model-element {
+  source repository
+  target model-element
+  type "archimate:association"
+}
+
+relationship repository-association-architecture-view {
+  source repository
+  target architecture-view
+  type "archimate:association"
+}
+
+relationship repository-association-architecture-project {
+  source repository
+  target architecture-project
+  type "archimate:association"
+}
+
+relationship model-element-association-model-relationship {
+  source model-element
+  target model-relationship
+  type "archimate:association"
+}
+
+relationship architecture-view-association-model-element {
+  source architecture-view
+  target model-element
+  type "archimate:association"
+}
+
+relationship architecture-project-association-model-element {
+  source architecture-project
+  target model-element
+  type "archimate:association"
+}
+
+relationship licence-association-repository {
+  source licence
+  target repository
+  type "archimate:association"
+}
+
+relationship repository-data-model-element-association-model-element {
+  source repository-data.model-element
+  target model-element
+  type "data:association"
+}
+
+relationship repository-data-model-relationship-association-model-relationship {
+  source repository-data.model-relationship
+  target model-relationship
+  type "data:association"
+}
+
+relationship repository-data-saved-view-association-architecture-view {
+  source repository-data.saved-view
+  target architecture-view
+  type "data:association"
+}
+
+relationship repository-data-change-project-association-architecture-project {
+  source repository-data.change-project
+  target architecture-project
+  type "data:association"
+}
+
+project customers-download-and-shop {
+  element customer {
+    type "archimate:businessobject"
+    displayName "Customer"
+    description-file "customer.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element order {
+    type "archimate:businessobject"
+    displayName "Order"
+    description-file "order.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element invoice {
+    type "archimate:businessobject"
+    displayName "Invoice"
+    description-file "invoice.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship customer-association-order {
+    source customer
+    target order
+    type "archimate:association"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship order-association-invoice {
+    source order
+    target invoice
+    type "archimate:association"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship order-association-licence {
+    source order
+    target licence
+    type "archimate:association"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+}

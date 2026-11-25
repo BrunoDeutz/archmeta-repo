@@ -1,0 +1,438 @@
+displayName "Application"
+description "The application services and the data they handle."
+
+element source-control {
+  type "archimate:applicationservice"
+  displayName "Source control"
+  description-file "source-control.md"
+}
+
+element build-and-release {
+  type "archimate:applicationservice"
+  displayName "Build and release"
+  description-file "build-and-release.md"
+}
+
+element site-publishing {
+  type "archimate:applicationservice"
+  displayName "Site publishing"
+  description-file "site-publishing.md"
+}
+
+element licence-issuing {
+  type "archimate:applicationservice"
+  displayName "Licence issuing"
+  description-file "licence-issuing.md"
+}
+
+element mail-handling {
+  type "archimate:applicationservice"
+  displayName "Mail handling"
+  description-file "mail-handling.md"
+}
+
+element model-authoring {
+  type "archimate:applicationservice"
+  displayName "Model authoring"
+  description-file "model-authoring.md"
+}
+
+element site-generation {
+  type "archimate:applicationservice"
+  displayName "Site generation"
+  description-file "site-generation.md"
+}
+
+element licence-file {
+  type "archimate:dataobject"
+  displayName "Licence file"
+  description-file "licence-file.md"
+}
+
+element release-package {
+  type "archimate:dataobject"
+  displayName "Release package"
+  description-file "release-package.md"
+}
+
+element architecture-repository {
+  type "archimate:dataobject"
+  displayName "Architecture repository"
+  description-file "architecture-repository.md"
+}
+
+relationship source-control-serving-develop-a-feature {
+  source source-control
+  target develop-a-feature
+  type "archimate:serving"
+}
+
+relationship model-authoring-serving-describe-the-architecture {
+  source model-authoring
+  target describe-the-architecture
+  type "archimate:serving"
+}
+
+relationship site-generation-serving-describe-the-architecture {
+  source site-generation
+  target describe-the-architecture
+  type "archimate:serving"
+}
+
+relationship build-and-release-serving-release-a-version {
+  source build-and-release
+  target release-a-version
+  type "archimate:serving"
+}
+
+relationship site-publishing-serving-publish-the-website {
+  source site-publishing
+  target publish-the-website
+  type "archimate:serving"
+}
+
+relationship licence-issuing-serving-issue-a-licence-by-hand {
+  source licence-issuing
+  target issue-a-licence-by-hand
+  type "archimate:serving"
+}
+
+relationship mail-handling-serving-issue-a-licence-by-hand {
+  source mail-handling
+  target issue-a-licence-by-hand
+  type "archimate:serving"
+}
+
+relationship mail-handling-serving-deliver-a-build-by-mail {
+  source mail-handling
+  target deliver-a-build-by-mail
+  type "archimate:serving"
+}
+
+relationship mail-handling-serving-answer-a-support-request {
+  source mail-handling
+  target answer-a-support-request
+  type "archimate:serving"
+}
+
+relationship licence-file-realization-licence {
+  source licence-file
+  target licence
+  type "archimate:realization"
+}
+
+relationship release-package-realization-release {
+  source release-package
+  target release
+  type "archimate:realization"
+}
+
+relationship architecture-repository-realization-repository {
+  source architecture-repository
+  target repository
+  type "archimate:realization"
+}
+
+relationship licence-issuing-access-licence-file {
+  source licence-issuing
+  target licence-file
+  type "archimate:access"
+}
+
+relationship build-and-release-access-release-package {
+  source build-and-release
+  target release-package
+  type "archimate:access"
+}
+
+relationship model-authoring-access-architecture-repository {
+  source model-authoring
+  target architecture-repository
+  type "archimate:access"
+}
+
+relationship site-generation-access-architecture-repository {
+  source site-generation
+  target architecture-repository
+  type "archimate:access"
+}
+
+relationship website-data-licence-association-licence-file {
+  source website-data.licence
+  target licence-file
+  type "data:association"
+}
+
+relationship repository-data-model-element-association-architecture-repository {
+  source repository-data.model-element
+  target architecture-repository
+  type "data:association"
+}
+
+project customers-download-and-shop {
+  element account-and-sign-in {
+    type "archimate:applicationservice"
+    displayName "Account and sign-in"
+    description-file "account-and-sign-in.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element software-download {
+    type "archimate:applicationservice"
+    displayName "Software download"
+    description-file "software-download.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element checkout {
+    type "archimate:applicationservice"
+    displayName "Checkout"
+    description-file "checkout.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element invoicing {
+    type "archimate:applicationservice"
+    displayName "Invoicing"
+    description-file "invoicing.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element customer-record {
+    type "archimate:dataobject"
+    displayName "Customer record"
+    description-file "customer-record.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element order-record {
+    type "archimate:dataobject"
+    displayName "Order record"
+    description-file "order-record.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element invoice-record {
+    type "archimate:dataobject"
+    displayName "Invoice record"
+    description-file "invoice-record.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship account-and-sign-in-serving-onboard-a-customer {
+    source account-and-sign-in
+    target onboard-a-customer
+    type "archimate:serving"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship software-download-serving-onboard-a-customer {
+    source software-download
+    target onboard-a-customer
+    type "archimate:serving"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship checkout-serving-sell-a-licence {
+    source checkout
+    target sell-a-licence
+    type "archimate:serving"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship licence-issuing-serving-sell-a-licence {
+    source licence-issuing
+    target sell-a-licence
+    type "archimate:serving"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship invoicing-serving-issue-the-invoice {
+    source invoicing
+    target issue-the-invoice
+    type "archimate:serving"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship customer-record-realization-customer {
+    source customer-record
+    target customer
+    type "archimate:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship order-record-realization-order {
+    source order-record
+    target order
+    type "archimate:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship invoice-record-realization-invoice {
+    source invoice-record
+    target invoice
+    type "archimate:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship account-and-sign-in-access-customer-record {
+    source account-and-sign-in
+    target customer-record
+    type "archimate:access"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship checkout-access-order-record {
+    source checkout
+    target order-record
+    type "archimate:access"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship invoicing-access-invoice-record {
+    source invoicing
+    target invoice-record
+    type "archimate:access"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship website-data-release-association-release-package {
+    source website-data.release
+    target release-package
+    type "data:association"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship website-data-customer-account-association-customer-record {
+    source website-data.customer-account
+    target customer-record
+    type "data:association"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship website-data-order-association-order-record {
+    source website-data.order
+    target order-record
+    type "data:association"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship website-data-invoice-association-invoice-record {
+    source website-data.invoice
+    target invoice-record
+    type "data:association"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+}
+
+project support-automation {
+  element self-service-support {
+    type "archimate:applicationservice"
+    displayName "Self-service support"
+    description-file "self-service-support.md"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+
+  relationship self-service-support-serving-answer-a-support-request-at-once {
+    source self-service-support
+    target answer-a-support-request-at-once
+    type "archimate:serving"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+displayName "Repository data"
+dataModel repository-data {
+  displayName "Repository data"
+  description-file "repository-data.md"
+}
+entity repository-data.model-element {
+  displayName "model-element"
+  description-file "repository-data-model-element.md"
+  attribute elementPath string primary-key
+  attribute typeName string foreign-key references repository-data.element-type.typeName
+  attribute label string
+  attribute summary string
+  attribute documentFile string
+  attribute parentPath string foreign-key references repository-data.model-element.elementPath
+}
+entity repository-data.model-relationship {
+  displayName "model-relationship"
+  description-file "repository-data-model-relationship.md"
+  attribute relationshipId string primary-key
+  attribute typeName string foreign-key references repository-data.relationship-type.typeName
+  attribute fromPath string foreign-key references repository-data.model-element.elementPath
+  attribute toPath string foreign-key references repository-data.model-element.elementPath
+}
+entity repository-data.element-type {
+  displayName "element-type"
+  description-file "repository-data-element-type.md"
+  attribute typeName string primary-key
+  attribute metamodelName string
+  attribute shapeName string
+  attribute colorCode string
+}
+entity repository-data.relationship-type {
+  displayName "relationship-type"
+  description-file "repository-data-relationship-type.md"
+  attribute typeName string primary-key
+  attribute metamodelName string
+  attribute lineStyle string
+  attribute nesting string
+}
+entity repository-data.data-point-declaration {
+  displayName "data-point-declaration"
+  description-file "repository-data-data-point-declaration.md"
+  attribute pointName string primary-key
+  attribute valueType string
+  attribute hierarchyPath string
+}
+entity repository-data.data-point-value {
+  displayName "data-point-value"
+  description-file "repository-data-data-point-value.md"
+  attribute valueId string primary-key
+  attribute elementPath string foreign-key references repository-data.model-element.elementPath
+  attribute pointName string foreign-key references repository-data.data-point-declaration.pointName
+  attribute content string
+}
+entity repository-data.saved-view {
+  displayName "saved-view"
+  description-file "repository-data-saved-view.md"
+  attribute viewId string primary-key
+  attribute viewKind string
+  attribute hierarchyPath string
+  attribute projectName string foreign-key references repository-data.change-project.projectName
+}
+entity repository-data.placement {
+  displayName "placement"
+  description-file "repository-data-placement.md"
+  attribute placementId string primary-key
+  attribute viewId string foreign-key references repository-data.saved-view.viewId
+  attribute elementPath string foreign-key references repository-data.model-element.elementPath
+  attribute posX integer
+  attribute posY integer
+}
+entity repository-data.change-project {
+  displayName "change-project"
+  description-file "repository-data-change-project.md"
+  attribute projectName string primary-key
+  attribute decidedOn date
+  attribute deliveryOn date
+  attribute closedOn date
+}
+entity repository-data.cascade-rule {
+  displayName "cascade-rule"
+  description-file "repository-data-cascade-rule.md"
+  attribute cascadeName string primary-key
+  attribute readsPoint string foreign-key references repository-data.data-point-declaration.pointName
+  attribute layerSet string
+  attribute mergeRule string
+}

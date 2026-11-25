@@ -1,0 +1,23 @@
+sequence first-start-of-archmeta {
+  displayName "First start of ArchMeta"
+  participant customer-architect
+  participant desktop-launcher
+  participant kernel
+  participant viewer
+
+  message customer-architect -> desktop-launcher {
+    displayName "Starts ArchMeta on a repository"
+  }
+  message desktop-launcher -> kernel {
+    displayName "Starts the Kernel"
+  }
+  message kernel -> kernel {
+    displayName "Checks the licence, loads the repository"
+  }
+  message desktop-launcher -> viewer {
+    displayName "Opens the Viewer"
+  }
+  message viewer -> kernel {
+    displayName "Reads Home"
+  }
+}

@@ -1,0 +1,750 @@
+displayName "Software"
+description "The systems, their containers and the systems outside."
+
+element archmeta {
+  type "c4:softwaresystem"
+  displayName "ArchMeta"
+  description-file "archmeta.md"
+  sequence-file "first-start-of-archmeta.sequence"
+}
+
+element desktop-launcher {
+  type "c4:container"
+  displayName "Desktop launcher"
+  description-file "desktop-launcher.md"
+}
+
+element kernel {
+  type "c4:container"
+  displayName "Kernel"
+  description-file "kernel.md"
+}
+
+element viewer {
+  type "c4:container"
+  displayName "Viewer"
+  description-file "viewer.md"
+}
+
+element publisher {
+  type "c4:container"
+  displayName "Publisher"
+  description-file "publisher.md"
+}
+
+element public-website {
+  type "c4:softwaresystem"
+  displayName "Public website"
+  description-file "public-website.md"
+}
+
+element public-site {
+  type "c4:container"
+  displayName "Public site"
+  description-file "public-site.md"
+}
+
+element licensing {
+  type "c4:softwaresystem"
+  displayName "Licensing"
+  description-file "licensing.md"
+}
+
+element licence-signer {
+  type "c4:container"
+  displayName "Licence signer"
+  description-file "licence-signer.md"
+}
+
+element build-pipeline {
+  type "c4:softwaresystem"
+  displayName "Build pipeline"
+  description-file "build-pipeline.md"
+}
+
+element source-repository {
+  type "c4:container"
+  displayName "Source repository"
+  description-file "source-repository.md"
+}
+
+element build-job {
+  type "c4:container"
+  displayName "Build job"
+  description-file "build-job.md"
+}
+
+element email-service {
+  type "c4:externalsystem"
+  displayName "Email service"
+  description-file "email-service.md"
+}
+
+relationship source-repository-realization-source-control {
+  source source-repository
+  target source-control
+  type "c4:realization"
+}
+
+relationship viewer-realization-model-authoring {
+  source viewer
+  target model-authoring
+  type "c4:realization"
+}
+
+relationship publisher-realization-site-generation {
+  source publisher
+  target site-generation
+  type "c4:realization"
+}
+
+relationship build-job-realization-build-and-release {
+  source build-job
+  target build-and-release
+  type "c4:realization"
+}
+
+relationship public-site-realization-site-publishing {
+  source public-site
+  target site-publishing
+  type "c4:realization"
+}
+
+relationship licence-signer-realization-licence-issuing {
+  source licence-signer
+  target licence-issuing
+  type "c4:realization"
+}
+
+relationship email-service-realization-mail-handling {
+  source email-service
+  target mail-handling
+  type "c4:realization"
+}
+
+relationship archmeta-includes-desktop-launcher {
+  source archmeta
+  target desktop-launcher
+  type "c4:includes"
+}
+
+relationship archmeta-includes-kernel {
+  source archmeta
+  target kernel
+  type "c4:includes"
+}
+
+relationship archmeta-includes-viewer {
+  source archmeta
+  target viewer
+  type "c4:includes"
+}
+
+relationship archmeta-includes-publisher {
+  source archmeta
+  target publisher
+  type "c4:includes"
+}
+
+relationship public-website-includes-public-site {
+  source public-website
+  target public-site
+  type "c4:includes"
+}
+
+relationship licensing-includes-licence-signer {
+  source licensing
+  target licence-signer
+  type "c4:includes"
+}
+
+relationship build-pipeline-includes-source-repository {
+  source build-pipeline
+  target source-repository
+  type "c4:includes"
+}
+
+relationship build-pipeline-includes-build-job {
+  source build-pipeline
+  target build-job
+  type "c4:includes"
+}
+
+relationship desktop-launcher-uses-kernel {
+  source desktop-launcher
+  target kernel
+  type "c4:uses"
+}
+
+relationship desktop-launcher-uses-viewer {
+  source desktop-launcher
+  target viewer
+  type "c4:uses"
+}
+
+relationship viewer-uses-kernel {
+  source viewer
+  target kernel
+  type "c4:uses"
+}
+
+relationship publisher-uses-kernel {
+  source publisher
+  target kernel
+  type "c4:uses"
+}
+
+relationship build-job-uses-source-repository {
+  source build-job
+  target source-repository
+  type "c4:uses"
+}
+
+relationship licence-signer-uses-website-data {
+  source licence-signer
+  target website-data
+  type "data:uses"
+}
+
+relationship kernel-uses-repository-data {
+  source kernel
+  target repository-data
+  type "data:uses"
+}
+
+project customers-download-and-shop {
+  element account-page {
+    type "c4:container"
+    displayName "Account page"
+    description-file "account-page.md"
+    sequence-file "customer-creation-on-the-web.sequence"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element download-page {
+    type "c4:container"
+    displayName "Download page"
+    description-file "download-page.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element licence-store {
+    type "c4:container"
+    displayName "Licence store"
+    description-file "licence-store.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element download-store {
+    type "c4:container"
+    displayName "Download store"
+    description-file "download-store.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element shop {
+    type "c4:softwaresystem"
+    displayName "Shop"
+    description-file "shop.md"
+    sequence-file "from-checkout-to-licence.sequence"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element checkout-page {
+    type "c4:container"
+    displayName "Checkout page"
+    description-file "checkout-page.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element order-service {
+    type "c4:container"
+    displayName "Order service"
+    description-file "order-service.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element order-store {
+    type "c4:container"
+    displayName "Order store"
+    description-file "order-store.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element payment-provider {
+    type "c4:externalsystem"
+    displayName "Payment provider"
+    description-file "payment-provider.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship account-page-realization-account-and-sign-in {
+    source account-page
+    target account-and-sign-in
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship download-page-realization-software-download {
+    source download-page
+    target software-download
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship order-service-realization-checkout {
+    source order-service
+    target checkout
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship checkout-page-realization-checkout {
+    source checkout-page
+    target checkout
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship order-service-realization-invoicing {
+    source order-service
+    target invoicing
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship public-website-includes-account-page {
+    source public-website
+    target account-page
+    type "c4:includes"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship public-website-includes-download-page {
+    source public-website
+    target download-page
+    type "c4:includes"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship licensing-includes-licence-store {
+    source licensing
+    target licence-store
+    type "c4:includes"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship build-pipeline-includes-download-store {
+    source build-pipeline
+    target download-store
+    type "c4:includes"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship shop-includes-checkout-page {
+    source shop
+    target checkout-page
+    type "c4:includes"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship shop-includes-order-service {
+    source shop
+    target order-service
+    type "c4:includes"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship shop-includes-order-store {
+    source shop
+    target order-store
+    type "c4:includes"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship checkout-page-uses-order-service {
+    source checkout-page
+    target order-service
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship order-service-uses-order-store {
+    source order-service
+    target order-store
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship order-service-uses-payment-provider {
+    source order-service
+    target payment-provider
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship order-service-uses-licence-signer {
+    source order-service
+    target licence-signer
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship order-service-uses-email-service {
+    source order-service
+    target email-service
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship licence-signer-uses-licence-store {
+    source licence-signer
+    target licence-store
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship download-page-uses-download-store {
+    source download-page
+    target download-store
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship build-job-uses-download-store {
+    source build-job
+    target download-store
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship account-page-uses-email-service {
+    source account-page
+    target email-service
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship order-service-uses-website-data {
+    source order-service
+    target website-data
+    type "data:uses"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  relationship account-page-uses-website-data {
+    source account-page
+    target website-data
+    type "data:uses"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+}
+
+project client-server-with-an-identity-provider {
+  element shared-kernel {
+    type "c4:container"
+    displayName "Shared Kernel"
+    description-file "shared-kernel.md"
+    sequence-file "sign-in-through-the-identity-provider.sequence"
+    data-points {
+      lifecycle "future"
+      project "client-server-with-an-identity-provider"
+      project-date "2027-09-01"
+    }
+  }
+
+  element customer-s-identity-provider {
+    type "c4:externalsystem"
+    displayName "Customer's identity provider"
+    description-file "customer-s-identity-provider.md"
+    data-points {
+      lifecycle "future"
+      project "client-server-with-an-identity-provider"
+      project-date "2027-09-01"
+    }
+  }
+
+  relationship archmeta-includes-shared-kernel {
+    source archmeta
+    target shared-kernel
+    type "c4:includes"
+    data-points {
+      lifecycle "future"
+      project "client-server-with-an-identity-provider"
+      project-date "2027-09-01"
+    }
+  }
+
+  relationship shared-kernel-realization-model-authoring {
+    source shared-kernel
+    target model-authoring
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "client-server-with-an-identity-provider"
+      project-date "2027-09-01"
+    }
+  }
+
+  relationship viewer-uses-shared-kernel {
+    source viewer
+    target shared-kernel
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "client-server-with-an-identity-provider"
+      project-date "2027-09-01"
+    }
+  }
+
+  relationship shared-kernel-uses-customer-s-identity-provider {
+    source shared-kernel
+    target customer-s-identity-provider
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "client-server-with-an-identity-provider"
+      project-date "2027-09-01"
+    }
+  }
+
+  relationship shared-kernel-uses-repository-data {
+    source shared-kernel
+    target repository-data
+    type "data:uses"
+    data-points {
+      lifecycle "future"
+      project "client-server-with-an-identity-provider"
+      project-date "2027-09-01"
+    }
+  }
+}
+
+project support-automation {
+  element faq {
+    type "c4:container"
+    displayName "FAQ"
+    description-file "faq.md"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+
+  element support-agent {
+    type "c4:container"
+    displayName "Support agent"
+    description-file "support-agent.md"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+
+  element ai-assistant {
+    type "c4:externalsystem"
+    displayName "AI assistant"
+    description-file "ai-assistant.md"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+
+  relationship faq-realization-self-service-support {
+    source faq
+    target self-service-support
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+
+  relationship support-agent-realization-self-service-support {
+    source support-agent
+    target self-service-support
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+
+  relationship public-website-includes-faq {
+    source public-website
+    target faq
+    type "c4:includes"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+
+  relationship public-website-includes-support-agent {
+    source public-website
+    target support-agent
+    type "c4:includes"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+
+  relationship support-agent-uses-ai-assistant {
+    source support-agent
+    target ai-assistant
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+
+  relationship support-agent-uses-faq {
+    source support-agent
+    target faq
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+}

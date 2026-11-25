@@ -1,0 +1,9 @@
+project support-automation {
+  displayName "Support automation"
+  description-file "model/projects/support-automation/support-automation.md"
+  created "2026-11-25"
+  updated "2026-11-25"
+  decided "2026-11-25"
+  delivery "2027-12-01"
+  files "model/descriptions/answer-a-support-request-at-once.md", "model/descriptions/self-service-support.md", "model/descriptions/faq.md", "model/descriptions/support-agent.md", "model/descriptions/ai-assistant.md", "model/processes/answer-a-support-request-at-once.bpmn"
+}

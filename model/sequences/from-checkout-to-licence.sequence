@@ -1,0 +1,25 @@
+sequence from-checkout-to-licence {
+  displayName "From checkout to licence"
+  participant customer-architect
+  participant checkout-page
+  participant order-service
+  participant payment-provider
+  participant licence-signer
+  participant email-service
+
+  message customer-architect -> checkout-page {
+    displayName "Chooses a tier and pays"
+  }
+  message checkout-page -> order-service {
+    displayName "Sends the order"
+  }
+  message order-service -> payment-provider {
+    displayName "Opens the payment"
+  }
+  message order-service -> licence-signer {
+    displayName "Asks for a signed licence"
+  }
+  message order-service -> email-service {
+    displayName "Sends the licence and the invoice"
+  }
+}

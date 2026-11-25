@@ -1,0 +1,86 @@
+displayName "Website data"
+dataModel website-data {
+  displayName "Website data"
+  description-file "website-data.md"
+}
+entity website-data.licence {
+  displayName "licence"
+  description-file "website-data-licence.md"
+  attribute licensee string primary-key
+  attribute elements integer
+  attribute git boolean
+  attribute multiUser boolean
+  attribute expiry date
+  attribute signedWith string foreign-key references website-data.signing-key.keyId
+  attribute signature string
+}
+entity website-data.signing-key {
+  displayName "signing-key"
+  description-file "website-data-signing-key.md"
+  attribute keyId string primary-key
+  attribute alias string
+  attribute pem string
+}
+project customers-download-and-shop {
+  entity website-data.customer-account {
+    displayName "customer-account"
+    description-file "website-data-customer-account.md"
+    attribute email string primary-key
+    attribute accountType string
+    attribute company string
+    attribute vat string
+    attribute vatCheckedAt date
+    attribute country string
+    attribute newsConsent boolean
+    attribute newsConsentAt date
+    attribute newsConsentVersion string
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+  entity website-data.order {
+    displayName "order"
+    description-file "website-data-order.md"
+    attribute orderId uuid primary-key
+    attribute accountEmail string foreign-key references website-data.customer-account.email
+    attribute tier string
+    attribute amount decimal
+    attribute vatRate decimal
+    attribute paidAt date
+    attribute paymentReference string
+    attribute licensee string foreign-key references website-data.licence.licensee
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+  entity website-data.invoice {
+    displayName "invoice"
+    description-file "website-data-invoice.md"
+    attribute invoiceNumber string primary-key
+    attribute orderId uuid foreign-key references website-data.order.orderId
+    attribute issuedOn date
+    attribute total decimal
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+  entity website-data.release {
+    displayName "release"
+    description-file "website-data-release.md"
+    attribute version string primary-key
+    attribute platform string
+    attribute fileName string
+    attribute sha256 string
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+}
