@@ -1,3 +1,22 @@
 {
-  "entries": []
+  "entries": [
+    {
+      "type": "section",
+      "title": "Archmeta Business",
+      "children": [
+        {
+          "type": "view",
+          "viewId": "customer-support"
+        },
+        {
+          "type": "view",
+          "viewId": "sales-and-licensing"
+        },
+        {
+          "type": "view",
+          "viewId": "archmeta-business-capability"
+        }
+      ]
+    }
+  ]
 }
