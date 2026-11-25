@@ -47,7 +47,7 @@
     {
       "id": "customer",
       "x": 1660.2690340673212,
-      "y": 765.5120453025188
+      "y": 764.3600089489673
     }
   ],
   "edges": [
@@ -75,5 +75,6 @@
       "waypoints": [],
       "sideVariant": 1
     }
-  ]
+  ],
+  "project": "customers-download-and-shop"
 }
