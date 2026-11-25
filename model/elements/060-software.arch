@@ -6,66 +6,13 @@ element archmeta {
   displayName "ArchMeta"
   description-file "archmeta.md"
   sequence-file "first-start-of-archmeta.sequence"
-}
-
-element desktop-launcher {
-  type "c4:container"
-  displayName "Desktop launcher"
-  description-file "desktop-launcher.md"
-}
-
-element kernel {
-  type "c4:container"
-  displayName "Kernel"
-  description-file "kernel.md"
-}
-
-element viewer {
-  type "c4:container"
-  displayName "Viewer"
-  description-file "viewer.md"
-}
-
-element publisher {
-  type "c4:container"
-  displayName "Publisher"
-  description-file "publisher.md"
-}
-
-element public-website {
-  type "c4:softwaresystem"
-  displayName "Public website"
-  description-file "public-website.md"
-}
-
-element public-site {
-  type "c4:container"
-  displayName "Public site"
-  description-file "public-site.md"
-}
-
-element licensing {
-  type "c4:softwaresystem"
-  displayName "Licensing"
-  description-file "licensing.md"
-}
-
-element licence-signer {
-  type "c4:container"
-  displayName "Licence signer"
-  description-file "licence-signer.md"
-}
-
-element build-pipeline {
-  type "c4:softwaresystem"
-  displayName "Build pipeline"
-  description-file "build-pipeline.md"
-}
-
-element source-repository {
-  type "c4:container"
-  displayName "Source repository"
-  description-file "source-repository.md"
+  project customers-download-and-shop {
+    view "archmeta"
+    data-points {
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
 }
 
 element build-job {
@@ -74,10 +21,70 @@ element build-job {
   description-file "build-job.md"
 }
 
+element build-pipeline {
+  type "c4:softwaresystem"
+  displayName "Build pipeline"
+  description-file "build-pipeline.md"
+}
+
+element desktop-launcher {
+  type "c4:container"
+  displayName "Desktop launcher"
+  description-file "desktop-launcher.md"
+}
+
 element email-service {
   type "c4:externalsystem"
   displayName "Email service"
   description-file "email-service.md"
+}
+
+element kernel {
+  type "c4:container"
+  displayName "Kernel"
+  description-file "kernel.md"
+}
+
+element licence-signer {
+  type "c4:container"
+  displayName "Licence signer"
+  description-file "licence-signer.md"
+}
+
+element licensing {
+  type "c4:softwaresystem"
+  displayName "Licensing"
+  description-file "licensing.md"
+}
+
+element public-site {
+  type "c4:container"
+  displayName "Public site"
+  description-file "public-site.md"
+}
+
+element public-website {
+  type "c4:softwaresystem"
+  displayName "Public website"
+  description-file "public-website.md"
+}
+
+element publisher {
+  type "c4:container"
+  displayName "Publisher"
+  description-file "publisher.md"
+}
+
+element source-repository {
+  type "c4:container"
+  displayName "Source repository"
+  description-file "source-repository.md"
+}
+
+element viewer {
+  type "c4:container"
+  displayName "Viewer"
+  description-file "viewer.md"
 }
 
 relationship source-repository-realization-source-control {
@@ -212,12 +219,103 @@ relationship kernel-uses-repository-data {
   type "data:uses"
 }
 
+project client-server-with-an-identity-provider {
+  element customer-s-identity-provider {
+    type "c4:externalsystem"
+    displayName "Customer's identity provider"
+    description-file "customer-s-identity-provider.md"
+    data-points {
+      lifecycle "future"
+      project "client-server-with-an-identity-provider"
+      project-date "2027-09-01"
+    }
+  }
+
+  element shared-kernel {
+    type "c4:container"
+    displayName "Shared Kernel"
+    description-file "shared-kernel.md"
+    sequence-file "sign-in-through-the-identity-provider.sequence"
+    data-points {
+      lifecycle "future"
+      project "client-server-with-an-identity-provider"
+      project-date "2027-09-01"
+    }
+  }
+
+  relationship archmeta-composition-shared-kernel {
+    source archmeta
+    target shared-kernel
+    type "archimate:composition"
+    data-points {
+      lifecycle "future"
+      project "client-server-with-an-identity-provider"
+      project-date "2027-09-01"
+    }
+  }
+
+  relationship shared-kernel-realization-model-authoring {
+    source shared-kernel
+    target model-authoring
+    type "c4:realization"
+    data-points {
+      lifecycle "future"
+      project "client-server-with-an-identity-provider"
+      project-date "2027-09-01"
+    }
+  }
+
+  relationship viewer-uses-shared-kernel {
+    source viewer
+    target shared-kernel
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "client-server-with-an-identity-provider"
+      project-date "2027-09-01"
+    }
+  }
+
+  relationship shared-kernel-uses-customer-s-identity-provider {
+    source shared-kernel
+    target customer-s-identity-provider
+    type "c4:uses"
+    data-points {
+      lifecycle "future"
+      project "client-server-with-an-identity-provider"
+      project-date "2027-09-01"
+    }
+  }
+
+  relationship shared-kernel-uses-repository-data {
+    source shared-kernel
+    target repository-data
+    type "data:uses"
+    data-points {
+      lifecycle "future"
+      project "client-server-with-an-identity-provider"
+      project-date "2027-09-01"
+    }
+  }
+}
+
 project customers-download-and-shop {
   element account-page {
     type "c4:container"
     displayName "Account page"
     description-file "account-page.md"
     sequence-file "customer-creation-on-the-web.sequence"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element checkout-page {
+    type "c4:container"
+    displayName "Checkout page"
+    description-file "checkout-page.md"
     data-points {
       lifecycle "future"
       project "customers-download-and-shop"
@@ -236,17 +334,6 @@ project customers-download-and-shop {
     }
   }
 
-  element licence-store {
-    type "c4:container"
-    displayName "Licence store"
-    description-file "licence-store.md"
-    data-points {
-      lifecycle "future"
-      project "customers-download-and-shop"
-      project-date "2027-03-01"
-    }
-  }
-
   element download-store {
     type "c4:container"
     displayName "Download store"
@@ -258,22 +345,10 @@ project customers-download-and-shop {
     }
   }
 
-  element shop {
-    type "c4:softwaresystem"
-    displayName "Shop"
-    description-file "shop.md"
-    sequence-file "from-checkout-to-licence.sequence"
-    data-points {
-      lifecycle "future"
-      project "customers-download-and-shop"
-      project-date "2027-03-01"
-    }
-  }
-
-  element checkout-page {
+  element licence-store {
     type "c4:container"
-    displayName "Checkout page"
-    description-file "checkout-page.md"
+    displayName "Licence store"
+    description-file "licence-store.md"
     data-points {
       lifecycle "future"
       project "customers-download-and-shop"
@@ -307,6 +382,18 @@ project customers-download-and-shop {
     type "c4:externalsystem"
     displayName "Payment provider"
     description-file "payment-provider.md"
+    data-points {
+      lifecycle "future"
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
+
+  element shop {
+    type "c4:softwaresystem"
+    displayName "Shop"
+    description-file "shop.md"
+    sequence-file "from-checkout-to-licence.sequence"
     data-points {
       lifecycle "future"
       project "customers-download-and-shop"
@@ -568,87 +655,18 @@ project customers-download-and-shop {
   }
 }
 
-project client-server-with-an-identity-provider {
-  element shared-kernel {
-    type "c4:container"
-    displayName "Shared Kernel"
-    description-file "shared-kernel.md"
-    sequence-file "sign-in-through-the-identity-provider.sequence"
-    data-points {
-      lifecycle "future"
-      project "client-server-with-an-identity-provider"
-      project-date "2027-09-01"
-    }
-  }
-
-  element customer-s-identity-provider {
-    type "c4:externalsystem"
-    displayName "Customer's identity provider"
-    description-file "customer-s-identity-provider.md"
-    data-points {
-      lifecycle "future"
-      project "client-server-with-an-identity-provider"
-      project-date "2027-09-01"
-    }
-  }
-
-  relationship archmeta-composition-shared-kernel {
-    source archmeta
-    target shared-kernel
-    type "archimate:composition"
-    data-points {
-      lifecycle "future"
-      project "client-server-with-an-identity-provider"
-      project-date "2027-09-01"
-    }
-  }
-
-  relationship shared-kernel-realization-model-authoring {
-    source shared-kernel
-    target model-authoring
-    type "c4:realization"
-    data-points {
-      lifecycle "future"
-      project "client-server-with-an-identity-provider"
-      project-date "2027-09-01"
-    }
-  }
-
-  relationship viewer-uses-shared-kernel {
-    source viewer
-    target shared-kernel
-    type "c4:uses"
-    data-points {
-      lifecycle "future"
-      project "client-server-with-an-identity-provider"
-      project-date "2027-09-01"
-    }
-  }
-
-  relationship shared-kernel-uses-customer-s-identity-provider {
-    source shared-kernel
-    target customer-s-identity-provider
-    type "c4:uses"
-    data-points {
-      lifecycle "future"
-      project "client-server-with-an-identity-provider"
-      project-date "2027-09-01"
-    }
-  }
-
-  relationship shared-kernel-uses-repository-data {
-    source shared-kernel
-    target repository-data
-    type "data:uses"
-    data-points {
-      lifecycle "future"
-      project "client-server-with-an-identity-provider"
-      project-date "2027-09-01"
-    }
-  }
-}
-
 project support-automation {
+  element ai-assistant {
+    type "c4:externalsystem"
+    displayName "AI assistant"
+    description-file "ai-assistant.md"
+    data-points {
+      lifecycle "future"
+      project "support-automation"
+      project-date "2027-12-01"
+    }
+  }
+
   element faq {
     type "c4:container"
     displayName "FAQ"
@@ -664,17 +682,6 @@ project support-automation {
     type "c4:container"
     displayName "Support agent"
     description-file "support-agent.md"
-    data-points {
-      lifecycle "future"
-      project "support-automation"
-      project-date "2027-12-01"
-    }
-  }
-
-  element ai-assistant {
-    type "c4:externalsystem"
-    displayName "AI assistant"
-    description-file "ai-assistant.md"
     data-points {
       lifecycle "future"
       project "support-automation"
