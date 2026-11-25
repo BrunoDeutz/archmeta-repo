@@ -24,6 +24,7 @@ element sales-and-licensing {
   type "archimate:capability"
   displayName "Sales and licensing"
   description-file "sales-and-licensing.md"
+  view "sales-and-licensing"
 }
 
 element web-presence {
