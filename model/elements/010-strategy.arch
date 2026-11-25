@@ -12,6 +12,7 @@ element product-engineering {
   type "archimate:capability"
   displayName "Product engineering"
   description-file "product-engineering.md"
+  view "product-engineering"
 }
 
 element release-and-packaging {
