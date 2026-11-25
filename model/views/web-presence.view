@@ -6,8 +6,8 @@
   "elements": [
     {
       "id": "web-presence",
-      "x": 945.4765714551579,
-      "y": 379.1526235677232
+      "x": 976.242683120163,
+      "y": 380.4902805966364
     },
     {
       "id": "product-information",
@@ -16,8 +16,8 @@
     },
     {
       "id": "customer-account",
-      "x": 1118.9765714551575,
-      "y": 593.3526235677233
+      "x": 1189.8723939875601,
+      "y": 588.0019954520703
     },
     {
       "id": "visitor",
@@ -31,50 +31,26 @@
     },
     {
       "id": "customer-architect",
-      "x": 1104.4765714551577,
+      "x": 1067.0221746455866,
       "y": 760.2526235677233
     },
     {
       "id": "onboard-a-customer",
-      "x": 1314.4765714551577,
-      "y": 760.2526235677233
+      "x": 1339.8920550045098,
+      "y": 765.6032516833764
     },
     {
       "id": "software-delivery",
-      "x": 1514.4765714551577,
-      "y": 685.2526235677233
+      "x": 1174.590080926743,
+      "y": 966.5254151928478
     },
     {
       "id": "customer",
-      "x": 1724.4765714551577,
-      "y": 685.2526235677233
-    },
-    {
-      "id": "account-and-sign-in",
-      "x": 1514.4765714551577,
-      "y": 775.2526235677233
-    },
-    {
-      "id": "software-download",
-      "x": 1724.4765714551577,
-      "y": 775.2526235677233
+      "x": 1660.2690340673212,
+      "y": 765.5120453025188
     }
   ],
   "edges": [
-    {
-      "id": "rel:onboard-a-customer-access-customer",
-      "waypoints": [
-        {
-          "x": 890.6987368769014,
-          "y": 1251.8306358342995
-        },
-        {
-          "x": -71.2149631230979,
-          "y": 1251.8306358342995
-        }
-      ],
-      "sideVariant": 0
-    },
     {
       "id": "rel:licence-purchase-serving-customer-architect",
       "waypoints": [
@@ -90,9 +66,14 @@
       "sideVariant": 0
     },
     {
-      "id": "rel:onboard-a-customer-realization-software-delivery",
+      "id": "rel:onboard-a-customer-access-customer",
       "waypoints": [],
       "sideVariant": 0
+    },
+    {
+      "id": "rel:onboard-a-customer-realization-software-delivery",
+      "waypoints": [],
+      "sideVariant": 1
     }
   ]
 }
