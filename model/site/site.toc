@@ -29,6 +29,10 @@
           "viewId": "product-engineering"
         }
       ]
+    },
+    {
+      "type": "view",
+      "viewId": "sales-and-licensing-full"
     }
   ]
 }
