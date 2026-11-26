@@ -1,0 +1,133 @@
+{
+  "displayName": "Sales and Licensing-full",
+  "description": "from the business capability to the applications",
+  "hierarchies": [
+    "application",
+    "business",
+    "infrastructure"
+  ],
+  "elements": [
+    {
+      "id": "sales-and-licensing",
+      "x": 904.6280991735533,
+      "y": -434.0495867768593
+    },
+    {
+      "id": "licence-delivery",
+      "x": 729.9173553719006,
+      "y": -222.56198347107426
+    },
+    {
+      "id": "sell-a-licence",
+      "x": 908.6776859504131,
+      "y": -26.11570247933878
+    },
+    {
+      "id": "checkout",
+      "x": 907.6258452291509,
+      "y": 115.00375657400457
+    },
+    {
+      "id": "licence-purchase",
+      "x": 1064.134773553719,
+      "y": -222.8749239669421
+    },
+    {
+      "id": "checkout-page",
+      "x": 690,
+      "y": 330
+    },
+    {
+      "id": "order-service",
+      "x": 900,
+      "y": 420
+    },
+    {
+      "id": "shop",
+      "x": 900,
+      "y": 240
+    },
+    {
+      "id": "issue-the-invoice",
+      "x": 1284.1898554470324,
+      "y": -31.846031855747583
+    },
+    {
+      "id": "invoicing",
+      "x": 1283.4303223140496,
+      "y": 114.1871652892562
+    },
+    {
+      "id": "website-data",
+      "x": 1292.4145272727271,
+      "y": 263.84732727272734,
+      "width": 952.909090909091,
+      "height": 598.1818181818181
+    },
+    {
+      "id": "website-data.licence",
+      "x": 1314.7781636363634,
+      "y": 305.1200545454546,
+      "width": 200,
+      "height": 186
+    },
+    {
+      "id": "website-data.signing-key",
+      "x": 1637.6872545454542,
+      "y": 303.84732727272734,
+      "width": 200,
+      "height": 98
+    },
+    {
+      "id": "website-data.customer-account",
+      "x": 1987.323618181818,
+      "y": 583.8473272727273,
+      "width": 200,
+      "height": 230
+    },
+    {
+      "id": "website-data.order",
+      "x": 1321.1417999999999,
+      "y": 582.9382363636364,
+      "width": 200,
+      "height": 208
+    },
+    {
+      "id": "website-data.invoice",
+      "x": 1659.3236181818177,
+      "y": 675.8473272727274,
+      "width": 200,
+      "height": 120
+    },
+    {
+      "id": "website-data.release",
+      "x": 1975.8690727272724,
+      "y": 315.66550909090915,
+      "width": 200,
+      "height": 120
+    },
+    {
+      "id": "release-package",
+      "x": 2010.4145272727267,
+      "y": 113.84732727272748
+    }
+  ],
+  "edges": [
+    {
+      "id": "rel:anon:0457999b7e6cb16562b1629944a29cff8ec2319f",
+      "waypoints": [
+        {
+          "x": 1934.9174265965435,
+          "y": 660.5062583020282
+        }
+      ],
+      "sideVariant": 0
+    },
+    {
+      "id": "rel:sell-a-licence-realization-licence-delivery",
+      "waypoints": [],
+      "sideVariant": 1
+    }
+  ],
+  "project": "customers-download-and-shop"
+}
