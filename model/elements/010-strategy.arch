@@ -26,6 +26,7 @@ element sales-and-licensing {
   displayName "Sales and licensing"
   description-file "sales-and-licensing.md"
   view "sales-and-licensing"
+  view "sales-and-licensing-full"
 }
 
 element web-presence {
