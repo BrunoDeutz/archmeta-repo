@@ -34,18 +34,20 @@
     },
     {
       "id": "checkout-page",
-      "x": 690,
-      "y": 330
+      "x": 792.1064409082323,
+      "y": 387.1221817618922
     },
     {
       "id": "order-service",
-      "x": 900,
-      "y": 420
+      "x": 1017.1276070755703,
+      "y": 386.0379880236861
     },
     {
       "id": "shop",
-      "x": 900,
-      "y": 240
+      "x": 762.77358855617,
+      "y": 236.09463664070574,
+      "width": 421.57902897552975,
+      "height": 421.57902897552975
     },
     {
       "id": "issue-the-invoice",
@@ -110,6 +112,26 @@
       "id": "release-package",
       "x": 2010.4145272727267,
       "y": 113.84732727272748
+    },
+    {
+      "id": "database",
+      "x": 626.3750439270374,
+      "y": 1076.833586088631
+    },
+    {
+      "id": "licence-store",
+      "x": 585.7803872547868,
+      "y": 757.257254485796
+    },
+    {
+      "id": "licence-signer",
+      "x": 862.4246023402601,
+      "y": 759.6531802741672
+    },
+    {
+      "id": "licence-issuing",
+      "x": 422.52305309952243,
+      "y": 115.61250721877394
     }
   ],
   "edges": [
@@ -124,9 +146,44 @@
       "sideVariant": 0
     },
     {
+      "id": "rel:licence-signer-realization-licence-issuing",
+      "waypoints": [
+        {
+          "x": 826.1974633719955,
+          "y": 697.5741907040856
+        }
+      ],
+      "sideVariant": 1
+    },
+    {
+      "id": "rel:order-service-uses-licence-signer",
+      "waypoints": [
+        {
+          "x": 993.0154695198676,
+          "y": 695.9545984113877
+        }
+      ],
+      "sideVariant": 1
+    },
+    {
+      "id": "rel:licence-signer-uses-website-data",
+      "waypoints": [
+        {
+          "x": 1216.519205912162,
+          "y": 825.5219818272105
+        }
+      ],
+      "sideVariant": 0
+    },
+    {
       "id": "rel:sell-a-licence-realization-licence-delivery",
       "waypoints": [],
       "sideVariant": 1
+    },
+    {
+      "id": "containment:shop->checkout-page",
+      "waypoints": [],
+      "sideVariant": 0
     }
   ],
   "project": "customers-download-and-shop"
