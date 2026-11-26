@@ -1,0 +1,80 @@
+{
+  "displayName": "Release and Packaging Full",
+  "hierarchies": [
+    "business",
+    "infrastructure",
+    "application"
+  ],
+  "elements": [
+    {
+      "id": "release-and-packaging",
+      "x": 414,
+      "y": 207.5
+    },
+    {
+      "id": "release-a-version",
+      "x": 414,
+      "y": 343.5
+    },
+    {
+      "id": "release",
+      "x": 335,
+      "y": 542.5
+    },
+    {
+      "id": "b9-founder",
+      "x": 110,
+      "y": 342.5
+    },
+    {
+      "id": "build-and-release",
+      "x": 574,
+      "y": 546.5
+    },
+    {
+      "id": "release-package",
+      "x": 461.6,
+      "y": 718.9000000000001
+    },
+    {
+      "id": "build-job",
+      "x": 923.5000000000003,
+      "y": 631.9999999999999
+    },
+    {
+      "id": "build-pipeline",
+      "x": 886.9999999999999,
+      "y": 557.9999999999999,
+      "width": 503,
+      "height": 503
+    },
+    {
+      "id": "source-repository",
+      "x": 1209.3000000000006,
+      "y": 635.1
+    },
+    {
+      "id": "download-store",
+      "x": 1209.2000000000003,
+      "y": 814.3999999999999
+    },
+    {
+      "id": "ci-runner",
+      "x": 965.1000000000006,
+      "y": 1140.8999999999999
+    }
+  ],
+  "processes": [
+    {
+      "element": "release-a-version",
+      "bpmn": "model/processes/release-a-version.bpmn",
+      "x": 643,
+      "y": 239,
+      "width": 640,
+      "height": 220,
+      "folded": false,
+      "expanded": false
+    }
+  ],
+  "project": "customers-download-and-shop"
+}
