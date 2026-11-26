@@ -170,26 +170,6 @@
       "sideVariant": 0
     },
     {
-      "id": "rel:licence-signer-realization-licence-issuing",
-      "waypoints": [
-        {
-          "x": 826.1974633719955,
-          "y": 697.5741907040856
-        }
-      ],
-      "sideVariant": 1
-    },
-    {
-      "id": "rel:order-service-uses-licence-signer",
-      "waypoints": [
-        {
-          "x": 993.0154695198676,
-          "y": 695.9545984113877
-        }
-      ],
-      "sideVariant": 1
-    },
-    {
       "id": "rel:licence-signer-uses-website-data",
       "waypoints": [
         {
@@ -211,6 +191,21 @@
           "y": 704.4072014354863
         }
       ],
+      "sideVariant": 1
+    },
+    {
+      "id": "rel:licence-signer-realization-licence-issuing",
+      "waypoints": [
+        {
+          "x": 839.5585457307005,
+          "y": 766.9842029893754
+        }
+      ],
+      "sideVariant": 1
+    },
+    {
+      "id": "rel:order-service-uses-licence-signer",
+      "waypoints": [],
       "sideVariant": 1
     },
     {
