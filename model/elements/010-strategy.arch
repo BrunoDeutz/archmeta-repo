@@ -19,6 +19,13 @@ element release-and-packaging {
   type "archimate:capability"
   displayName "Release and packaging"
   description-file "release-and-packaging.md"
+  project customers-download-and-shop {
+    view "release-and-packaging-full"
+    data-points {
+      project "customers-download-and-shop"
+      project-date "2027-03-01"
+    }
+  }
 }
 
 element sales-and-licensing {
