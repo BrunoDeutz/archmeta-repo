@@ -1,0 +1,51 @@
+{
+  "displayName": "Web Site data model",
+  "description": "desciption of logical structure of the data use to support the web",
+  "hierarchies": [
+    "data"
+  ],
+  "elements": [
+    {
+      "id": "website-data.licence",
+      "x": 357,
+      "y": -3.5,
+      "width": 200,
+      "height": 186
+    },
+    {
+      "id": "website-data.signing-key",
+      "x": 646,
+      "y": 2.5,
+      "width": 200,
+      "height": 98
+    },
+    {
+      "id": "website-data.customer-account",
+      "x": 920,
+      "y": 1.5,
+      "width": 200,
+      "height": 230
+    },
+    {
+      "id": "website-data.order",
+      "x": 357,
+      "y": 281.5,
+      "width": 200,
+      "height": 208
+    },
+    {
+      "id": "website-data.invoice",
+      "x": 641,
+      "y": 372.5,
+      "width": 200,
+      "height": 120
+    },
+    {
+      "id": "website-data.release",
+      "x": 918,
+      "y": 364.5,
+      "width": 200,
+      "height": 120
+    }
+  ]
+}
