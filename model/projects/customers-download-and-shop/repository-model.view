@@ -7,73 +7,80 @@
   "elements": [
     {
       "id": "repository-data.model-element",
-      "x": 370,
-      "y": 265.5,
+      "x": 1936.7685484000003,
+      "y": 275.2435854999999,
       "width": 200,
       "height": 164
     },
     {
       "id": "repository-data.model-relationship",
-      "x": -13,
-      "y": 156.5,
+      "x": 1553.7685484000003,
+      "y": 166.24358549999988,
       "width": 200,
       "height": 120
     },
     {
       "id": "repository-data.element-type",
-      "x": 854,
-      "y": 163.5,
+      "x": 2420.7685484000003,
+      "y": 173.24358549999988,
       "width": 200,
       "height": 120
     },
     {
       "id": "repository-data.relationship-type",
-      "x": 371,
-      "y": 46.5,
+      "x": 1937.7685484000003,
+      "y": 56.24358549999988,
       "width": 200,
       "height": 120
     },
     {
       "id": "repository-data.data-point-declaration",
-      "x": 52,
-      "y": 695.5,
+      "x": 1618.7685484000003,
+      "y": 705.2435854999999,
       "width": 200,
       "height": 98
     },
     {
       "id": "repository-data.data-point-value",
-      "x": 52,
-      "y": 465.5,
+      "x": 1618.7685484000003,
+      "y": 475.2435854999999,
       "width": 200,
       "height": 120
     },
     {
       "id": "repository-data.saved-view",
-      "x": 374,
-      "y": 506.5,
+      "x": 1940.7685484000003,
+      "y": 516.2435854999999,
       "width": 200,
       "height": 120
     },
     {
       "id": "repository-data.placement",
-      "x": 855,
-      "y": 381.5,
+      "x": 2421.7685484000003,
+      "y": 391.2435854999999,
       "width": 200,
       "height": 142
     },
     {
       "id": "repository-data.change-project",
-      "x": 860,
-      "y": 589.5,
+      "x": 2426.7685484000003,
+      "y": 599.2435854999999,
       "width": 200,
       "height": 120
     },
     {
       "id": "repository-data.cascade-rule",
-      "x": 367,
-      "y": 684.5,
+      "x": 1933.7685484000003,
+      "y": 694.2435854999999,
       "width": 200,
       "height": 120
+    },
+    {
+      "id": "repository-data",
+      "x": 1483.5890748000002,
+      "y": -2.544702900000118,
+      "width": 1219.5892734,
+      "height": 899.8970701000001
     }
   ],
   "edges": [
@@ -81,8 +88,8 @@
       "id": "rel:anon:6af1a27e573e4a7deb0508b9849752ef6bf99275",
       "waypoints": [
         {
-          "x": 87,
-          "y": 328.5
+          "x": 1672.480207996697,
+          "y": 357.30716310988674
         }
       ],
       "sideVariant": 0
