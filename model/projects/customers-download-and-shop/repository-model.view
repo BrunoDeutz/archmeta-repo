@@ -1,0 +1,92 @@
+{
+  "displayName": "repository model",
+  "description": "a representation of the repository in the kernel",
+  "hierarchies": [
+    "data"
+  ],
+  "elements": [
+    {
+      "id": "repository-data.model-element",
+      "x": 370,
+      "y": 265.5,
+      "width": 200,
+      "height": 164
+    },
+    {
+      "id": "repository-data.model-relationship",
+      "x": -13,
+      "y": 156.5,
+      "width": 200,
+      "height": 120
+    },
+    {
+      "id": "repository-data.element-type",
+      "x": 854,
+      "y": 163.5,
+      "width": 200,
+      "height": 120
+    },
+    {
+      "id": "repository-data.relationship-type",
+      "x": 371,
+      "y": 46.5,
+      "width": 200,
+      "height": 120
+    },
+    {
+      "id": "repository-data.data-point-declaration",
+      "x": 52,
+      "y": 695.5,
+      "width": 200,
+      "height": 98
+    },
+    {
+      "id": "repository-data.data-point-value",
+      "x": 52,
+      "y": 465.5,
+      "width": 200,
+      "height": 120
+    },
+    {
+      "id": "repository-data.saved-view",
+      "x": 374,
+      "y": 506.5,
+      "width": 200,
+      "height": 120
+    },
+    {
+      "id": "repository-data.placement",
+      "x": 855,
+      "y": 381.5,
+      "width": 200,
+      "height": 142
+    },
+    {
+      "id": "repository-data.change-project",
+      "x": 860,
+      "y": 589.5,
+      "width": 200,
+      "height": 120
+    },
+    {
+      "id": "repository-data.cascade-rule",
+      "x": 367,
+      "y": 684.5,
+      "width": 200,
+      "height": 120
+    }
+  ],
+  "edges": [
+    {
+      "id": "rel:anon:6af1a27e573e4a7deb0508b9849752ef6bf99275",
+      "waypoints": [
+        {
+          "x": 87,
+          "y": 328.5
+        }
+      ],
+      "sideVariant": 0
+    }
+  ],
+  "project": "customers-download-and-shop"
+}
