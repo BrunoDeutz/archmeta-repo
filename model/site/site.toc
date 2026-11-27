@@ -33,6 +33,20 @@
     {
       "type": "view",
       "viewId": "sales-and-licensing-full"
+    },
+    {
+      "type": "section",
+      "title": "Data",
+      "children": [
+        {
+          "type": "view",
+          "viewId": "repository-model"
+        },
+        {
+          "type": "view",
+          "viewId": "web-site-data-model"
+        }
+      ]
     }
   ]
 }
